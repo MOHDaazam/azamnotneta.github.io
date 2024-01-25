@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MySQL Interview Questions & Answers by Mohd Azam</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+    <style>
+        ul,
+        ol {
+            padding-left: 15px !important;
+        }
+        .overflow-y-auto{
+            width: 1000px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="jumbotron text-center">
+        <h3>MySQL Interview Questions & Answers by Mohd Azam</h3>
+        <p>Entry, Mid and Senior Level</p>
+    </div>
+    <ul>
+        <li>
+            <p><strong>Explain the difference between INNER JOIN and LEFT JOIN.</strong></p>
+            <ul>
+                <li><strong></strong> INNER JOIN returns rows where there is a match in both tables, while LEFT
+                    JOIN returns all rows from the left table and matching rows from the right table (null for
+                    non-matching rows).</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> employees.name, departments.department_name
+        <span class="hljs-keyword">FROM</span> employees
+        <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> departments <span class="hljs-keyword">ON</span> employees.department_id <span class="hljs-operator">=</span> departments.department_id;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the ACID properties in the context of database transactions.</strong></p>
+            <ul>
+                <li><strong></strong> ACID stands for Atomicity, Consistency, Isolation, and Durability. These
+                    properties ensure that database transactions are reliable and maintain data integrity.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of the GROUP BY clause in SQL.</strong></p>
+            <ul>
+                <li><strong></strong> GROUP BY is used to group rows based on specified columns, often used with
+                    aggregate functions like COUNT, SUM, AVG, etc.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> department, <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">as</span> employee_count
+        <span class="hljs-keyword">FROM</span> employees
+        <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the difference between UNION and UNION ALL?</strong></p>
+            <ul>
+                <li><strong></strong> UNION combines and removes duplicate rows, while UNION ALL combines all
+                    rows, including duplicates.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table1
+        <span class="hljs-keyword">UNION</span>
+        <span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table2;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How can you optimize SQL queries for better performance?</strong></p>
+            <ul>
+                <li><strong></strong> Optimization techniques include using indexes, avoiding unnecessary joins,
+                    optimizing WHERE clauses, and ensuring proper indexing.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the concept of SQL indexes.</strong></p>
+            <ul>
+                <li><strong></strong> Indexes are data structures that improve the speed of data retrieval
+                    operations on a database table.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the purpose of the HAVING clause in SQL?</strong></p>
+            <ul>
+                <li><strong></strong> HAVING is used in conjunction with GROUP BY to filter grouped rows based on
+                    specified conditions.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> department, <span class="hljs-built_in">AVG</span>(salary) <span class="hljs-keyword">as</span> avg_salary
+        <span class="hljs-keyword">FROM</span> employees
+        <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department
+        <span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">AVG</span>(salary) <span class="hljs-operator">&gt;</span> <span class="hljs-number">50000</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the difference between primary key and foreign key.</strong></p>
+            <ul>
+                <li><strong></strong> A primary key uniquely identifies a record in a table, while a foreign key
+                    links a column in one table to the primary key of another table, establishing a relationship.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the role of the COMMIT statement in SQL?</strong></p>
+            <ul>
+                <li><strong></strong> COMMIT is used to save (or commit) changes made during a transaction,
+                    making them permanent.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">BEGIN</span> TRANSACTION;
+        <span class="hljs-comment">-- Perform updates, inserts, deletes</span>
+        <span class="hljs-keyword">COMMIT</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the purpose of the ORDER BY clause.</strong></p>
+            <ul>
+                <li><strong></strong> ORDER BY is used to sort the result set of a query based on specified
+                    columns and order (ascending or descending).</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees
+        <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> salary <span class="hljs-keyword">DESC</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How to perform a self-join in SQL?</strong></p>
+            <ul>
+                <li><strong></strong> A self-join is a regular join, but the table is joined with itself. It is
+                    often used when relating rows within the same table.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> e1.name <span class="hljs-keyword">as</span> employee, e2.name <span class="hljs-keyword">as</span> manager
+        <span class="hljs-keyword">FROM</span> employees e1
+        <span class="hljs-keyword">JOIN</span> employees e2 <span class="hljs-keyword">ON</span> e1.manager_id <span class="hljs-operator">=</span> e2.employee_id;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the concept of a stored procedure.</strong></p>
+            <ul>
+                <li><strong></strong> A stored procedure is a set of SQL statements with a name, stored in the
+                    database, and executed as a single unit.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> GetEmployeeCount()
+        <span class="hljs-keyword">AS</span>
+        <span class="hljs-keyword">BEGIN</span>
+            <span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">FROM</span> employees;
+        <span class="hljs-keyword">END</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the use of triggers in SQL.</strong></p>
+            <ul>
+                <li><strong></strong> Triggers are sets of instructions that are automatically executed
+                    ("triggered") in response to specific events in the database.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the purpose of the CASCADE keyword?</strong></p>
+            <ul>
+                <li><strong></strong> CASCADE is used in constraints (e.g., foreign key constraints) to specify
+                    that certain actions should propagate to related rows.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How to use the LIMIT clause in SQL?</strong></p>
+            <ul>
+                <li><strong></strong> LIMIT is used to constrain the number of rows returned in a query result.
+                </li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> products
+        LIMIT <span class="hljs-number">10</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of the BETWEEN operator.</strong></p>
+            <ul>
+                <li><strong></strong> BETWEEN is used to filter results within a specified range.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> orders
+        <span class="hljs-keyword">WHERE</span> order_date <span class="hljs-keyword">BETWEEN</span> <span class="hljs-string">'2022-01-01'</span> <span class="hljs-keyword">AND</span> <span class="hljs-string">'2022-01-31'</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the significance of the UNION operator.</strong></p>
+            <ul>
+                <li><strong></strong> UNION is used to combine the result sets of two or more SELECT statements.
+                </li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table1
+        <span class="hljs-keyword">UNION</span>
+        <span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table2;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the purpose of the LIKE operator?</strong></p>
+            <ul>
+                <li><strong></strong> LIKE is used in a WHERE clause to search for a specified pattern in a
+                    column.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> customers
+        <span class="hljs-keyword">WHERE</span> name <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'John%'</span>;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the concept of SQL injection.</strong></p>
+            <ul>
+                <li><strong></strong> SQL injection is a code injection technique where malicious SQL statements
+                    are inserted into input fields, potentially leading to unauthorized access to the database.</li>
+                <li><strong>Example Query:</strong> N/A</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How to calculate the average in SQL?</strong></p>
+            <ul>
+                <li><strong></strong> AVG() is an aggregate function used to calculate the average value of a
+                    numeric column.</li>
+                <li><strong>Example Query:</strong>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">AVG</span>(salary) <span class="hljs-keyword">FROM</span> employees;
+        </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Triggers:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is a trigger in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> A trigger is a set of instructions that are automatically executed (or "triggered")
+                        in response to specific events on a particular table.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> before_insert_example
+            BEFORE <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> employees
+            <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+            <span class="hljs-keyword">SET</span> NEW.created_at <span class="hljs-operator">=</span> NOW();
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Stored Procedures:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is a stored procedure in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> A stored procedure is a set of SQL statements that can be stored in the database and
+                        executed later.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql">DELIMITER <span class="hljs-operator">/</span><span class="hljs-operator">/</span>
+            <span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> get_employee_details (<span class="hljs-keyword">IN</span> emp_id <span class="hljs-type">INT</span>)
+            <span class="hljs-keyword">BEGIN</span>
+                <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> employee_id <span class="hljs-operator">=</span> emp_id;
+            <span class="hljs-keyword">END</span> <span class="hljs-operator">/</span><span class="hljs-operator">/</span>
+            DELIMITER ;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Views:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is a view in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> A view is a virtual table based on the result of a SELECT query, allowing users to
+                        query the view as if it were a table.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">VIEW</span> active_employees <span class="hljs-keyword">AS</span>
+            <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> status <span class="hljs-operator">=</span> <span class="hljs-string">'active'</span>;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Foreign Keys:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is a foreign key in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> A foreign key is a column or a set of columns that establishes a link between data in
+                        two tables, enforcing referential integrity.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> orders (
+                order_id <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+                customer_id <span class="hljs-type">INT</span>,
+                <span class="hljs-keyword">FOREIGN</span> KEY (customer_id) <span class="hljs-keyword">REFERENCES</span> customers(customer_id)
+            );
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Indexing:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> Explain the purpose of indexing in MySQL.</p>
+                </li>
+                <li>
+                    <p><em>A:</em> Indexing enhances the speed of data retrieval operations on a database table by
+                        creating a data structure (index) that allows quick lookups.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> INDEX idx_last_name <span class="hljs-keyword">ON</span> employees (last_name);
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Aggregate Functions:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What are some commonly used aggregate functions in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> Aggregate functions include COUNT, SUM, AVG, MAX, and MIN.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">AVG</span>(salary) <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> department_id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Joins:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> Explain the difference between INNER JOIN and LEFT JOIN in MySQL.</p>
+                </li>
+                <li>
+                    <p><em>A:</em> INNER JOIN retrieves records where there is a match in both tables, while LEFT JOIN
+                        retrieves all records from the left table and matched records from the right table.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees
+            <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> departments <span class="hljs-keyword">ON</span> employees.department_id <span class="hljs-operator">=</span> departments.department_id;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Subqueries:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is a subquery in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> A subquery is a query nested within another query, used to retrieve data that will be
+                        used by the main query.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> department_id <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> department_id <span class="hljs-keyword">FROM</span> departments <span class="hljs-keyword">WHERE</span> location <span class="hljs-operator">=</span> <span class="hljs-string">'New York'</span>);
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - UNION Operator:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> Explain the purpose of the UNION operator in MySQL.</p>
+                </li>
+                <li>
+                    <p><em>A:</em> The UNION operator combines the result of two or more SELECT statements into a single
+                        result set.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> employee_id, first_name <span class="hljs-keyword">FROM</span> employees
+            <span class="hljs-keyword">UNION</span>
+            <span class="hljs-keyword">SELECT</span> customer_id, contact_name <span class="hljs-keyword">FROM</span> customers;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - CASE Statement:</strong></p>
+        </li>
+    </ol>
+    <ul>
+        <li>
+            <p><em>Q:</em> What is the CASE statement in MySQL used for?</p>
+        </li>
+        <li>
+            <p><em>A:</em> The CASE statement performs conditional logic in SQL queries.</p>
+        </li>
+        <li>
+            <p><em>Example:</em></p>
+            <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> employee_id, salary,
+                <span class="hljs-keyword">CASE</span>
+                    <span class="hljs-keyword">WHEN</span> salary <span class="hljs-operator">&gt;</span> <span class="hljs-number">50000</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">'High'</span>
+                    <span class="hljs-keyword">WHEN</span> salary <span class="hljs-operator">&gt;</span> <span class="hljs-number">30000</span> <span class="hljs-keyword">THEN</span> <span class="hljs-string">'Medium'</span>
+                    <span class="hljs-keyword">ELSE</span> <span class="hljs-string">'Low'</span>
+                <span class="hljs-keyword">END</span> <span class="hljs-keyword">AS</span> salary_range
+            <span class="hljs-keyword">FROM</span> employees;
+            </code></div></div></pre>
+        </li>
+    </ul>
+    <ul start="11">
+        <li>
+            <p><strong>MySQL - Data Types:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What are some commonly used data types in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> Data types include INT, VARCHAR, DATE, FLOAT, and BOOLEAN.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> students (
+                student_id <span class="hljs-type">INT</span>,
+                first_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+                birth_date <span class="hljs-type">DATE</span>,
+                GPA <span class="hljs-type">FLOAT</span>,
+                is_enrolled <span class="hljs-type">BOOLEAN</span>
+            );
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - GROUP BY Clause:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> Explain the purpose of the GROUP BY clause in MySQL.</p>
+                </li>
+                <li>
+                    <p><em>A:</em> The GROUP BY clause groups rows that have the same values in specified columns into
+                        summary rows.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> department_id, <span class="hljs-built_in">AVG</span>(salary) <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department_id;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - ROLLUP and CUBE:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is the ROLLUP and CUBE operators in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> ROLLUP and CUBE are used with the GROUP BY clause to generate subtotals and grand
+                        totals.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> department_id, job_id, <span class="hljs-built_in">AVG</span>(salary)
+            <span class="hljs-keyword">FROM</span> employees
+            <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">ROLLUP</span> (department_id, job_id);
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - LIMIT Clause:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> How does the LIMIT clause work in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> The LIMIT clause is used to limit the number of rows returned by a query.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> employees LIMIT <span class="hljs-number">10</span>;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Self-Join:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> How do you perform a self-join in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> A self-join is a regular join, but the table is joined with itself.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> e1.employee_id, e1.first_name, e2.supervisor_id
+            <span class="hljs-keyword">FROM</span> employees e1
+            <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> employees e2 <span class="hljs-keyword">ON</span> e1.employee_id <span class="hljs-operator">=</span> e2.supervisor_id;
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Auto Increment:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is the purpose of the AUTO_INCREMENT attribute in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> AUTO_INCREMENT is used to generate a unique numeric value automatically when a new
+                        record is inserted.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> students (
+                student_id <span class="hljs-type">INT</span> AUTO_INCREMENT <span class="hljs-keyword">PRIMARY</span> KEY,
+                first_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>),
+                last_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>)
+            );
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - REPLACE Statement:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> Explain the REPLACE statement in MySQL.</p>
+                </li>
+                <li>
+                    <p><em>A:</em> The REPLACE statement is used to insert a new row or replace an existing row if a
+                        unique key violation occurs.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql">REPLACE <span class="hljs-keyword">INTO</span> employees (employee_id, first_name, last_name)
+            <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">101</span>, <span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>);
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Full-Text Search:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What is full-text search in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> Full-text search enables searching for text within columns of character data types.
+                    </p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> articles <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">MATCH</span>(title, content) AGAINST(<span class="hljs-string">'MySQL full-text search'</span>);
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - Foreign Key Constraints:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> How do foreign key constraints work in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> Foreign key constraints enforce relationships between tables, ensuring referential
+                        integrity.</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> orders (
+                order_id <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,
+                customer_id <span class="hljs-type">INT</span>,
+                <span class="hljs-keyword">FOREIGN</span> KEY (customer_id) <span class="hljs-keyword">REFERENCES</span> customers(customer_id) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE
+            );
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>MySQL - DATE and TIME Functions:</strong></p>
+            <ul>
+                <li>
+                    <p><em>Q:</em> What are some commonly used DATE and TIME functions in MySQL?</p>
+                </li>
+                <li>
+                    <p><em>A:</em> Functions include NOW(), DATE_FORMAT(), TIMESTAMPDIFF(), and CURDATE().</p>
+                </li>
+                <li>
+                    <p><em>Example:</em></p>
+                    <pre class='language-sql'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> events <span class="hljs-keyword">WHERE</span> event_date <span class="hljs-operator">&gt;</span> CURDATE();
+            </code></div></div></pre>
+                </li>
+            </ul>
+        </li>
+        
+    </ul>
+    <script defer>
+        setTimeout(() => {
+            const codeTags = document.querySelectorAll('code');
+
+            codeTags.forEach(codeTag => {
+                const classes = codeTag.classList.value.split(' '); // Get all classes
+                console.log(classes)
+                const filteredClasses = classes.filter(c => c !== 'language-sql'); // Keep !whitespace-pre
+                codeTag.classList.value = filteredClasses.join(' '); // Set classes back with !whitespace-pre
+            });
+        }, 2000)
+
+    </script>
+</body>
+
+</html>

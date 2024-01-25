@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Leet code, Javascript blind 75 Questions & Answers by Mohd Azam</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+    <style>
+        ul,
+        ol {
+            padding-left: 15px !important;
+        }
+
+        .overflow-y-auto {
+            width: 1000px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="jumbotron text-center">
+        <h3>Leet code, Javascript blind 75 Questions & Answers by Mohd Azam</h3>
+        <p>Array, Binary, Dynamic Programming, Graph, Interval, Linked List, Matrix, String, Tree and Heap </p>
+    </div>
+
+    <h2>Array :</h2><br />
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Two Sum</h3>
+        <p><strong>Problem:</strong>
+            Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">twoSum</span>(<span class="hljs-params">nums, target</span>) {
+          <span class="hljs-keyword">const</span> numIndicesMap = {};
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) {
+            <span class="hljs-keyword">const</span> complement = target - nums[i];
+            <span class="hljs-keyword">if</span> (numIndicesMap.<span class="hljs-title function_">hasOwnProperty</span>(complement)) {
+              <span class="hljs-keyword">return</span> [numIndicesMap[complement], i];
+            }
+            numIndicesMap[nums[i]] = i;
+          }
+        
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; <span class="hljs-comment">// No solution found</span>
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsTwoSum = [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">15</span>];
+        <span class="hljs-keyword">const</span> targetTwoSum = <span class="hljs-number">9</span>;
+        <span class="hljs-keyword">const</span> resultTwoSum = <span class="hljs-title function_">twoSum</span>(numsTwoSum, targetTwoSum);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Two Sum:"</span>, resultTwoSum); <span class="hljs-comment">// Output: [0, 1]</span>
+        </code></div></div></pre>
+        <h3>Best Time to Buy and Sell Stock</h3>
+        <p><strong>Problem:</strong>
+            Given an array representing daily stock prices, find the maximum profit that can be obtained by buying and
+            selling one share of stock.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">maxProfit</span>(<span class="hljs-params">prices</span>) {
+          <span class="hljs-keyword">let</span> minPrice = <span class="hljs-title class_">Infinity</span>;
+          <span class="hljs-keyword">let</span> maxProfit = <span class="hljs-number">0</span>;
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; prices.<span class="hljs-property">length</span>; i++) {
+            minPrice = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(minPrice, prices[i]);
+            maxProfit = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(maxProfit, prices[i] - minPrice);
+          }
+        
+          <span class="hljs-keyword">return</span> maxProfit;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> pricesStock = [<span class="hljs-number">7</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>];
+        <span class="hljs-keyword">const</span> maxProfitValue = <span class="hljs-title function_">maxProfit</span>(pricesStock);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Max Profit:"</span>, maxProfitValue); <span class="hljs-comment">// Output: 5</span>
+        </code></div></div></pre>
+        <h3>Contains Duplicate</h3>
+        <p><strong>Problem:</strong>
+            Given an array of integers, find if the array contains any duplicates.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">containsDuplicate</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">const</span> numSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(nums);
+          <span class="hljs-keyword">return</span> numSet.<span class="hljs-property">size</span> !== nums.<span class="hljs-property">length</span>;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsDuplicate = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">const</span> hasDuplicate = <span class="hljs-title function_">containsDuplicate</span>(numsDuplicate);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Contains Duplicate:"</span>, hasDuplicate); <span class="hljs-comment">// Output: true</span>
+        </code></div></div></pre>
+        <h3>Product of Array Except Self</h3>
+        <p><strong>Problem:</strong>
+            Given an array <code>nums</code> of n integers where n &gt; 1, return an array <code>output</code> such that
+            <code>output[i]</code> is equal to the product of all the elements of <code>nums</code> except
+            <code>nums[i]</code>.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">productExceptSelf</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">const</span> n = nums.<span class="hljs-property">length</span>;
+          <span class="hljs-keyword">const</span> output = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);
+        
+          <span class="hljs-keyword">let</span> leftProduct = <span class="hljs-number">1</span>;
+          <span class="hljs-keyword">let</span> rightProduct = <span class="hljs-number">1</span>;
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+            output[i] *= leftProduct;
+            output[n - <span class="hljs-number">1</span> - i] *= rightProduct;
+        
+            leftProduct *= nums[i];
+            rightProduct *= nums[n - <span class="hljs-number">1</span> - i];
+          }
+        
+          <span class="hljs-keyword">return</span> output;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1) (excluding the output array)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsProduct = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+        <span class="hljs-keyword">const</span> resultProduct = <span class="hljs-title function_">productExceptSelf</span>(numsProduct);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Product Except Self:"</span>, resultProduct); <span class="hljs-comment">// Output: [24, 12, 8, 6]</span>
+        </code></div></div></pre>
+        <p>These are the solutions for the remaining LeetCode problems with explanations and examples. If you have
+            further questions or need clarification, feel free to ask!</p>
+    </div>
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>3 Sum</h3>
+        <p><strong>Problem:</strong>
+            Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all
+            unique triplets in the array which gives the sum of zero.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">function</span> <span class="hljs-title function_">threeSum</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">const</span> result = [];
+        
+          nums.<span class="hljs-title function_">sort</span>(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-property">length</span> - <span class="hljs-number">2</span>; i++) {
+            <span class="hljs-keyword">if</span> (i === <span class="hljs-number">0</span> || (i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] !== nums[i - <span class="hljs-number">1</span>])) {
+              <span class="hljs-keyword">let</span> left = i + <span class="hljs-number">1</span>;
+              <span class="hljs-keyword">let</span> right = nums.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>;
+              <span class="hljs-keyword">const</span> target = -nums[i];
+        
+              <span class="hljs-keyword">while</span> (left &lt; right) {
+                <span class="hljs-keyword">const</span> sum = nums[left] + nums[right];
+        
+                <span class="hljs-keyword">if</span> (sum === target) {
+                  result.<span class="hljs-title function_">push</span>([nums[i], nums[left], nums[right]]);
+                  <span class="hljs-keyword">while</span> (left &lt; right &amp;&amp; nums[left] === nums[left + <span class="hljs-number">1</span>]) left++;
+                  <span class="hljs-keyword">while</span> (left &lt; right &amp;&amp; nums[right] === nums[right - <span class="hljs-number">1</span>]) right--;
+                  left++;
+                  right--;
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &lt; target) {
+                  left++;
+                } <span class="hljs-keyword">else</span> {
+                  right--;
+                }
+              }
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> result;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n^2)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">const</span> numsThreeSum = [-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">4</span>];
+        <span class="hljs-keyword">const</span> resultThreeSum = <span class="hljs-title function_">threeSum</span>(numsThreeSum);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"3 Sum:"</span>, resultThreeSum); <span class="hljs-comment">// Output: [[-1, -1, 2], [-1, 0, 1]]</span>
+        </code></div></div></pre>
+        <h3>Container With Most Water</h3>
+        <p><strong>Problem:</strong>
+            Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n
+            vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines,
+            which, together with the x-axis forms a container, such that the container contains the most water.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">function</span> <span class="hljs-title function_">maxArea</span>(<span class="hljs-params">height</span>) {
+          <span class="hljs-keyword">let</span> max = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">let</span> left = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">let</span> right = height.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>;
+        
+          <span class="hljs-keyword">while</span> (left &lt; right) {
+            <span class="hljs-keyword">const</span> h = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(height[left], height[right]);
+            <span class="hljs-keyword">const</span> w = right - left;
+            max = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(max, h * w);
+        
+            <span class="hljs-keyword">if</span> (height[left] &lt; height[right]) {
+              left++;
+            } <span class="hljs-keyword">else</span> {
+              right--;
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> max;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">const</span> heightsContainer = [<span class="hljs-number">1</span>, <span class="hljs-number">8</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>];
+        <span class="hljs-keyword">const</span> maxWater = <span class="hljs-title function_">maxArea</span>(heightsContainer);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Container With Most Water:"</span>, maxWater); <span class="hljs-comment">// Output: 49</span>
+        </code></div></div></pre>
+        <p>These are the solutions for "3 Sum" and "Container With Most Water" with explanations and examples. If you
+            have further questions or need examples for the remaining problems, feel free to ask!</p>
+    </div>
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Maximum Subarray</h3>
+        <p><strong>Problem:</strong>
+            Given an integer array nums, find the contiguous subarray (containing at least one number) that has the
+            largest sum and return its sum.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">function</span> <span class="hljs-title function_">maxSubarray</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">let</span> maxSum = nums[<span class="hljs-number">0</span>];
+          <span class="hljs-keyword">let</span> currentSum = nums[<span class="hljs-number">0</span>];
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) {
+            currentSum = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(nums[i], currentSum + nums[i]);
+            maxSum = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(maxSum, currentSum);
+          }
+        
+          <span class="hljs-keyword">return</span> maxSum;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">const</span> numsMaxSubarray = [-<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">5</span>, <span class="hljs-number">4</span>];
+        <span class="hljs-keyword">const</span> maxSubarraySum = <span class="hljs-title function_">maxSubarray</span>(numsMaxSubarray);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Maximum Subarray Sum:"</span>, maxSubarraySum); <span class="hljs-comment">// Output: 6</span>
+        </code></div></div></pre>
+        <h3>Maximum Product Subarray</h3>
+        <p><strong>Problem:</strong>
+            Given an integer array nums, find the contiguous subarray within an array (containing at least one number)
+            that has the largest product and return the product.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">function</span> <span class="hljs-title function_">maxProductSubarray</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">let</span> maxProduct = nums[<span class="hljs-number">0</span>];
+          <span class="hljs-keyword">let</span> minProduct = nums[<span class="hljs-number">0</span>];
+          <span class="hljs-keyword">let</span> result = nums[<span class="hljs-number">0</span>];
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) {
+            <span class="hljs-keyword">if</span> (nums[i] &lt; <span class="hljs-number">0</span>) {
+              [maxProduct, minProduct] = [minProduct, maxProduct];
+            }
+        
+            maxProduct = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(nums[i], maxProduct * nums[i]);
+            minProduct = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(nums[i], minProduct * nums[i]);
+        
+            result = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(result, maxProduct);
+          }
+        
+          <span class="hljs-keyword">return</span> result;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">const</span> numsMaxProduct = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">4</span>];
+        <span class="hljs-keyword">const</span> maxProduct = <span class="hljs-title function_">maxProductSubarray</span>(numsMaxProduct);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Maximum Product Subarray:"</span>, maxProduct); <span class="hljs-comment">// Output: 6</span>
+        </code></div></div></pre>
+        <h3>Find Minimum in Rotated Sorted Array</h3>
+        <p><strong>Problem:</strong>
+            Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. Find the
+            minimum element.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">function</span> <span class="hljs-title function_">findMin</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">let</span> left = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">let</span> right = nums.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>;
+        
+          <span class="hljs-keyword">while</span> (left &lt; right) {
+            <span class="hljs-keyword">const</span> mid = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((left + right) / <span class="hljs-number">2</span>);
+        
+            <span class="hljs-keyword">if</span> (nums[mid] &gt; nums[right]) {
+              left = mid + <span class="hljs-number">1</span>;
+            } <span class="hljs-keyword">else</span> {
+              right = mid;
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> nums[left];
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(log n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">const</span> numsFindMin = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+        <span class="hljs-keyword">const</span> minInRotatedArray = <span class="hljs-title function_">findMin</span>(numsFindMin);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Minimum in Rotated Sorted Array:"</span>, minInRotatedArray); <span class="hljs-comment">// Output: 0</span>
+        </code></div></div></pre>
+        <h3>Search in Rotated Sorted Array</h3>
+        <p><strong>Problem:</strong>
+            Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. You are given
+            a target value to search. If found in the array, return its index; otherwise, return -1.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">function</span> <span class="hljs-title function_">searchInRotatedArray</span>(<span class="hljs-params">nums, target</span>) {
+          <span class="hljs-keyword">let</span> left = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">let</span> right = nums.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>;
+        
+          <span class="hljs-keyword">while</span> (left &lt;= right) {
+            <span class="hljs-keyword">const</span> mid = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>((left + right) / <span class="hljs-number">2</span>);
+        
+            <span class="hljs-keyword">if</span> (nums[mid] === target) {
+              <span class="hljs-keyword">return</span> mid;
+            }
+        
+            <span class="hljs-keyword">if</span> (nums[left] &lt;= nums[mid]) {
+              <span class="hljs-keyword">if</span> (target &gt;= nums[left] &amp;&amp; target &lt; nums[mid]) {
+                right = mid - <span class="hljs-number">1</span>;
+              } <span class="hljs-keyword">else</span> {
+                left = mid + <span class="hljs-number">1</span>;
+              }
+            } <span class="hljs-keyword">else</span> {
+              <span class="hljs-keyword">if</span> (target &gt; nums[mid] &amp;&amp; target &lt;= nums[right]) {
+                left = mid + <span class="hljs-number">1</span>;
+              } <span class="hljs-keyword">else</span> {
+                right = mid - <span class="hljs-number">1</span>;
+              }
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(log n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs"><span class="hljs-keyword">const</span> numsSearchRotated = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>];
+        <span class="hljs-keyword">const</span> targetSearchRotated = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">const</span> index = <span class="hljs-title function_">searchInRotatedArray</span>(numsSearchRotated, targetSearchRotated);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Index of Target in Rotated Array:"</span>, index); <span class="hljs-comment">// Output: 4</span>
+        </code></div></div></pre>
+        <p>These are the solutions for "Maximum Subarray," "Maximum Product Subarray," "Find Minimum in Rotated Sorted
+            Array," and "Search in Rotated Sorted Array" with explanations and examples. If you have further questions
+            or need examples for the remaining problems, feel free to ask!</p>
+    </div>
+    <br />
+    <h2>Binary</h2><br />
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Sum of Two Integers</h3>
+        <p><strong>Problem:</strong>
+            Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">getSum</span>(<span class="hljs-params">a, b</span>) {
+          <span class="hljs-keyword">while</span> (b !== <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">const</span> carry = a &amp; b;
+            a = a ^ b;
+            b = carry &lt;&lt; <span class="hljs-number">1</span>;
+          }
+        
+          <span class="hljs-keyword">return</span> a;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(1)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-number">3</span>;
+        <span class="hljs-keyword">const</span> b = <span class="hljs-number">5</span>;
+        <span class="hljs-keyword">const</span> sum = <span class="hljs-title function_">getSum</span>(a, b);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Sum of Two Integers:"</span>, sum); <span class="hljs-comment">// Output: 8</span>
+        </code></div></div></pre>
+        <h3>Number of 1 Bits</h3>
+        <p><strong>Problem:</strong>
+            Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the
+            Hamming weight).</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">hammingWeight</span>(<span class="hljs-params">n</span>) {
+          <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;
+        
+          <span class="hljs-keyword">while</span> (n !== <span class="hljs-number">0</span>) {
+            count += n &amp; <span class="hljs-number">1</span>;
+            n &gt;&gt;&gt;= <span class="hljs-number">1</span>;
+          }
+        
+          <span class="hljs-keyword">return</span> count;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(1) - Assuming a fixed-width integer.
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> number = <span class="hljs-number">11</span>; <span class="hljs-comment">// Binary representation: 1011</span>
+        <span class="hljs-keyword">const</span> countBits = <span class="hljs-title function_">hammingWeight</span>(number);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Number of 1 Bits:"</span>, countBits); <span class="hljs-comment">// Output: 3</span>
+        </code></div></div></pre>
+        <h3>Counting Bits</h3>
+        <p><strong>Problem:</strong>
+            Given a non-negative integer num, for every number i in the range 0 ≤ i ≤ num, calculate the number of 1's
+            in their binary representation.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">countBits</span>(<span class="hljs-params">num</span>) {
+          <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(num + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= num; i++) {
+            result[i] = result[i &gt;&gt; <span class="hljs-number">1</span>] + (i &amp; <span class="hljs-number">1</span>);
+          }
+        
+          <span class="hljs-keyword">return</span> result;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numCountBits = <span class="hljs-number">5</span>;
+        <span class="hljs-keyword">const</span> bitsArray = <span class="hljs-title function_">countBits</span>(numCountBits);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Counting Bits:"</span>, bitsArray); <span class="hljs-comment">// Output: [0, 1, 1, 2, 1, 2]</span>
+        </code></div></div></pre>
+        <h3>Missing Number</h3>
+        <p><strong>Problem:</strong>
+            Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from
+            the array.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">missingNumber</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">const</span> n = nums.<span class="hljs-property">length</span>;
+          <span class="hljs-keyword">let</span> missing = n;
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+            missing ^= i ^ nums[i];
+          }
+        
+          <span class="hljs-keyword">return</span> missing;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsMissing = [<span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">const</span> missingNumberValue = <span class="hljs-title function_">missingNumber</span>(numsMissing);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Missing Number:"</span>, missingNumberValue); <span class="hljs-comment">// Output: 2</span>
+        </code></div></div></pre>
+        <h3>Reverse Bits</h3>
+        <p><strong>Problem:</strong>
+            Reverse bits of a given 32 bits unsigned integer.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">reverseBits</span>(<span class="hljs-params">n</span>) {
+          <span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>;
+          <span class="hljs-keyword">let</span> power = <span class="hljs-number">31</span>;
+        
+          <span class="hljs-keyword">while</span> (n !== <span class="hljs-number">0</span>) {
+            result += (n &amp; <span class="hljs-number">1</span>) &lt;&lt; power;
+            n &gt;&gt;&gt;= <span class="hljs-number">1</span>;
+            power--;
+          }
+        
+          <span class="hljs-keyword">return</span> result &gt;&gt;&gt; <span class="hljs-number">0</span>; <span class="hljs-comment">// Ensure unsigned 32-bit integer</span>
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(1)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numReverseBits = <span class="hljs-number">43261596</span>; <span class="hljs-comment">// Binary representation: 00000010100101000001111010011100</span>
+        <span class="hljs-keyword">const</span> reversedBits = <span class="hljs-title function_">reverseBits</span>(numReverseBits);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Reverse Bits:"</span>, reversedBits); <span class="hljs-comment">// Output: 964176192</span>
+        </code></div></div></pre>
+
+    </div>
+    <br />
+    <h2>Dynamic Programming</h2> <br />
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Climbing Stairs</h3>
+        <p><strong>Problem:</strong>
+            You are climbing a stair case. It takes n steps to reach the top. Each time you can either climb 1 or 2
+            steps. In how many distinct ways can you climb to the top?</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">climbStairs</span>(<span class="hljs-params">n</span>) {
+      <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>) {
+        <span class="hljs-keyword">return</span> n;
+      }
+    
+      <span class="hljs-keyword">let</span> prev1 = <span class="hljs-number">1</span>;
+      <span class="hljs-keyword">let</span> prev2 = <span class="hljs-number">2</span>;
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++) {
+        <span class="hljs-keyword">const</span> current = prev1 + prev2;
+        prev1 = prev2;
+        prev2 = current;
+      }
+    
+      <span class="hljs-keyword">return</span> prev2;
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> stairs = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">const</span> distinctWays = <span class="hljs-title function_">climbStairs</span>(stairs);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Distinct Ways to Climb Stairs:"</span>, distinctWays); <span class="hljs-comment">// Output: 8</span>
+    </code></div></div></pre>
+        <h3>Coin Change</h3>
+        <p><strong>Problem:</strong>
+            You are given coins of different denominations and a total amount of money. Write a function to compute the
+            number of combinations that make up that amount. You may assume that you have an infinite number of each
+            kind of coin.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">coinChange</span>(<span class="hljs-params">coins, amount</span>) {
+      <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(amount + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);
+      dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> coin <span class="hljs-keyword">of</span> coins) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = coin; i &lt;= amount; i++) {
+          dp[i] += dp[i - coin];
+        }
+      }
+    
+      <span class="hljs-keyword">return</span> dp[amount];
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n * m), where n is the amount and m is the number of coin denominations.
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> coins = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>];
+    <span class="hljs-keyword">const</span> amount = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">const</span> combinations = <span class="hljs-title function_">coinChange</span>(coins, amount);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Number of Coin Change Combinations:"</span>, combinations); <span class="hljs-comment">// Output: 4</span>
+    </code></div></div></pre>
+        <h3>Longest Increasing Subsequence</h3>
+        <p><strong>Problem:</strong>
+            Given an unsorted array of integers, find the length of longest increasing subsequence.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">lengthOfLIS</span>(<span class="hljs-params">nums</span>) {
+      <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(nums.<span class="hljs-property">length</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">1</span>);
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; i; j++) {
+          <span class="hljs-keyword">if</span> (nums[i] &gt; nums[j]) {
+            dp[i] = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(dp[i], dp[j] + <span class="hljs-number">1</span>);
+          }
+        }
+      }
+    
+      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(...dp, <span class="hljs-number">0</span>);
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n^2)
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsLIS = [<span class="hljs-number">10</span>, <span class="hljs-number">9</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">101</span>, <span class="hljs-number">18</span>];
+    <span class="hljs-keyword">const</span> longestSubsequenceLength = <span class="hljs-title function_">lengthOfLIS</span>(numsLIS);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Longest Increasing Subsequence Length:"</span>, longestSubsequenceLength); <span class="hljs-comment">// Output: 4</span>
+    </code></div></div></pre>
+        <h3>Longest Common Subsequence</h3>
+        <p><strong>Problem:</strong>
+            Given two strings text1 and text2, return the length of their longest common subsequence.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">longestCommonSubsequence</span>(<span class="hljs-params">text1, text2</span>) {
+      <span class="hljs-keyword">const</span> m = text1.<span class="hljs-property">length</span>;
+      <span class="hljs-keyword">const</span> n = text2.<span class="hljs-property">length</span>;
+      <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(m + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>));
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>; j &lt;= n; j++) {
+          <span class="hljs-keyword">if</span> (text1[i - <span class="hljs-number">1</span>] === text2[j - <span class="hljs-number">1</span>]) {
+            dp[i][j] = dp[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;
+          } <span class="hljs-keyword">else</span> {
+            dp[i][j] = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(dp[i - <span class="hljs-number">1</span>][j], dp[i][j - <span class="hljs-number">1</span>]);
+          }
+        }
+      }
+    
+      <span class="hljs-keyword">return</span> dp[m][n];
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(m * n), where m and n are the lengths of the input strings.
+            <strong>Space Complexity:</strong> O(m * n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> text1 = <span class="hljs-string">"abcde"</span>;
+    <span class="hljs-keyword">const</span> text2 = <span class="hljs-string">"ace"</span>;
+    <span class="hljs-keyword">const</span> commonSubsequenceLength = <span class="hljs-title function_">longestCommonSubsequence</span>(text1, text2);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Longest Common Subsequence Length:"</span>, commonSubsequenceLength); <span class="hljs-comment">// Output: 3</span>
+    </code></div></div></pre>
+        <h3>Word Break Problem</h3>
+        <p><strong>Problem:</strong>
+            Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s
+            can be segmented into a space-separated sequence of one or more dictionary words.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">wordBreak</span>(<span class="hljs-params">s, wordDict</span>) {
+      <span class="hljs-keyword">const</span> wordSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(wordDict);
+      <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(s.<span class="hljs-property">length</span> + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-literal">false</span>);
+      dp[<span class="hljs-number">0</span>] = <span class="hljs-literal">true</span>;
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> end = <span class="hljs-number">1</span>; end &lt;= s.<span class="hljs-property">length</span>; end++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>; start &lt; end; start++) {
+          <span class="hljs-keyword">if</span> (dp[start] &amp;&amp; wordSet.<span class="hljs-title function_">has</span>(s.<span class="hljs-title function_">substring</span>(start, end))) {
+            dp[end] = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">break</span>;
+          }
+        }
+      }
+    
+      <span class="hljs-keyword">return</span> dp[s.<span class="hljs-property">length</span>];
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n^2), where n is the length of the input string.
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> sWordBreak = <span class="hljs-string">"leetcode"</span>;
+    <span class="hljs-keyword">const</span> wordDict = [<span class="hljs-string">"leet"</span>, <span class="hljs-string">"code"</span>];
+    <span class="hljs-keyword">const</span> canSegment = <span class="hljs-title function_">wordBreak</span>(sWordBreak, wordDict);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Can Word Break?"</span>, canSegment); <span class="hljs-comment">// Output: true</span>
+    </code></div></div></pre>
+        <h3>Combination Sum</h3>
+        <p><strong>Problem:</strong>
+            Given an array of distinct integers candidates and a target integer target, return a list of all unique
+            combinations of candidates where the chosen numbers sum to target.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">combinationSum</span>(<span class="hljs-params">candidates, target</span>) {
+      <span class="hljs-keyword">const</span> result = [];
+    
+      <span class="hljs-keyword">function</span> <span class="hljs-title function_">backtrack</span>(<span class="hljs-params">start, target, current</span>) {
+        <span class="hljs-keyword">if</span> (target === <span class="hljs-number">0</span>) {
+          result.<span class="hljs-title function_">push</span>([...current]);
+          <span class="hljs-keyword">return</span>;
+        }
+    
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = start; i &lt; candidates.<span class="hljs-property">length</span>; i++) {
+          <span class="hljs-keyword">if</span> (candidates[i] &lt;= target) {
+            current.<span class="hljs-title function_">push</span>(candidates[i]);
+            <span class="hljs-title function_">backtrack</span>(i, target - candidates[i], current);
+            current.<span class="hljs-title function_">pop</span>();
+          }
+        }
+      }
+    
+      <span class="hljs-title function_">backtrack</span>(<span class="hljs-number">0</span>, target, []);
+      <span class="hljs-keyword">return</span> result;
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n * 2^n)
+            <strong>Space Complexity:</strong> O(n) for the call stack
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> candidatesCombinationSum = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>];
+    <span class="hljs-keyword">const</span> targetCombinationSum = <span class="hljs-number">7</span>;
+    <span class="hljs-keyword">const</span> combinations = <span class="hljs-title function_">combinationSum</span>(candidatesCombinationSum, targetCombinationSum);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Combination Sum:"</span>, combinations); <span class="hljs-comment">// Output: [[2,2,3],[7]]</span>
+    </code></div></div></pre>
+        <h3>House Robber</h3>
+        <p><strong>Problem:</strong>
+            You are a professional robber planning to rob houses along a street. Each house has a certain amount of
+            money stashed, and the only constraint stopping you from robbing each of them is that adjacent houses have
+            security systems connected, and it will automatically contact the police if two adjacent houses were broken
+            into on the same night. Determine the maximum amount of money you can rob tonight without alerting the
+            police.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">rob</span>(<span class="hljs-params">nums</span>) {
+      <span class="hljs-keyword">let</span> prevMax = <span class="hljs-number">0</span>;
+      <span class="hljs-keyword">let</span> currMax = <span class="hljs-number">0</span>;
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> num <span class="hljs-keyword">of</span> nums) {
+        <span class="hljs-keyword">const</span> temp = currMax;
+        currMax = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(prevMax + num, currMax);
+        prevMax = temp;
+      }
+    
+      <span class="hljs-keyword">return</span> currMax;
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsRobber = [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>];
+    <span class="hljs-keyword">const</span> maxRobbedAmount = <span class="hljs-title function_">rob</span>(numsRobber);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Maximum Amount Robbed:"</span>, maxRobbedAmount); <span class="hljs-comment">// Output: 12</span>
+    </code></div></div></pre>
+        <h3>House Robber II</h3>
+        <p><strong>Problem:</strong>
+            You are a professional robber planning to rob houses along a street. Each house has a certain amount of
+            money stashed. All houses at this place are arranged in a circle. That means the first house is the neighbor
+            of the last one. Meanwhile, the security system for these houses is strict. If you rob the first house, you
+            cannot rob the last one, and vice versa. Determine the maximum amount of money you can rob tonight without
+            alerting the police.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">robII</span>(<span class="hljs-params">nums</span>) {
+      <span class="hljs-keyword">function</span> <span class="hljs-title function_">simpleRob</span>(<span class="hljs-params">nums</span>) {
+        <span class="hljs-keyword">let</span> prevMax = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">let</span> currMax = <span class="hljs-number">0</span>;
+    
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> num <span class="hljs-keyword">of</span> nums) {
+          <span class="hljs-keyword">const</span> temp = currMax;
+          currMax = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(prevMax + num, currMax);
+          prevMax = temp;
+        }
+    
+        <span class="hljs-keyword">return</span> currMax;
+      }
+    
+      <span class="hljs-keyword">const</span> n = nums.<span class="hljs-property">length</span>;
+    
+      <span class="hljs-keyword">if</span> (n === <span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];
+      }
+    
+      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(<span class="hljs-title function_">simpleRob</span>(nums.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>)), <span class="hljs-title function_">simpleRob</span>(nums.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>)));
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsRobberII = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>];
+    <span class="hljs-keyword">const</span> maxRobbedAmountII = <span class="hljs-title function_">robII</span>(numsRobberII);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Maximum Amount Robbed (Circular):"</span>, maxRobbedAmountII); <span class="hljs-comment">// Output: 3</span>
+    </code></div></div></pre>
+        <h3>Decode Ways</h3>
+        <p><strong>Problem:</strong>
+            A message containing letters from A-Z can be encoded into numbers using the following mapping: 'A' -&gt;
+            '1', 'B' -&gt; '2', ..., 'Z' -&gt; '26'. Given a string s containing only digits, return the number of ways
+            to decode it.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">numDecodings</span>(<span class="hljs-params">s</span>) {
+      <span class="hljs-keyword">if</span> (s[<span class="hljs-number">0</span>] === <span class="hljs-string">'0'</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+      }
+    
+      <span class="hljs-keyword">const</span> n = s.<span class="hljs-property">length</span>;
+      <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n + <span class="hljs-number">1</span>).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);
+      dp[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) {
+        <span class="hljs-keyword">if</span> (s[i - <span class="hljs-number">1</span>] !== <span class="hljs-string">'0'</span>) {
+          dp[i] += dp[i - <span class="hljs-number">1</span>];
+        }
+    
+        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">1</span> &amp;&amp; s[i - <span class="hljs-number">2</span>] === <span class="hljs-string">'1'</span> || (s[i - <span class="hljs-number">2</span>] === <span class="hljs-string">'2'</span> &amp;&amp; s[i - <span class="hljs-number">1</span>] &lt;= <span class="hljs-string">'6'</span>)) {
+          dp[i] += dp[i - <span class="hljs-number">2</span>];
+        }
+      }
+    
+      <span class="hljs-keyword">return</span> dp[n];
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> sDecodeWays = <span class="hljs-string">"226"</span>;
+    <span class="hljs-keyword">const</span> numWays = <span class="hljs-title function_">numDecodings</span>(sDecodeWays);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Number of Decoding Ways:"</span>, numWays); <span class="hljs-comment">// Output: 3</span>
+    </code></div></div></pre>
+        <h3>Unique Paths</h3>
+        <p><strong>Problem:</strong>
+            A robot is located at the top-left corner of a m x n grid. The robot can only move either down or right at
+            any point in time. How many unique paths are there to the bottom-right corner?</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">uniquePaths</span>(<span class="hljs-params">m, n</span>) {
+      <span class="hljs-keyword">const</span> dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(m).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>));
+    
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) {
+          <span class="hljs-keyword">if</span> (i === <span class="hljs-number">0</span> || j === <span class="hljs-number">0</span>) {
+            dp[i][j] = <span class="hljs-number">1</span>;
+          } <span class="hljs-keyword">else</span> {
+            dp[i][j] = dp[i - <span class="hljs-number">1</span>][j] + dp[i][j - <span class="hljs-number">1</span>];
+          }
+        }
+      }
+    
+      <span class="hljs-keyword">return</span> dp[m - <span class="hljs-number">1</span>][n - <span class="hljs-number">1</span>];
+    }
+    </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(m * n)
+            <strong>Space Complexity:</strong> O(m * n)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> mUniquePaths = <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">const</span> nUniquePaths = <span class="hljs-number">7</span>;
+    <span class="hljs-keyword">const</span> uniquePathsCount = <span class="hljs-title function_">uniquePaths</span>(mUniquePaths, nUniquePaths);
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Unique Paths Count:"</span>, uniquePathsCount); <span class="hljs-comment">// Output: 28</span>
+    </code></div></div></pre>
+
+    </div>
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Jump Game</h3>
+        <p><strong>Problem:</strong>
+            Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
+            Each element in the array represents your maximum jump length from that position. Determine if you can reach
+            the last index.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">canJump</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">let</span> maxReach = <span class="hljs-number">0</span>;
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-property">length</span>; i++) {
+            <span class="hljs-keyword">if</span> (i &gt; maxReach) {
+              <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// If the current index is not reachable</span>
+            }
+        
+            maxReach = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(maxReach, i + nums[i]);
+        
+            <span class="hljs-keyword">if</span> (maxReach &gt;= nums.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>) {
+              <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// If the last index is reachable</span>
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+        </code></div></div></pre>
+        <p><strong>Time Complexity:</strong> O(n)
+            <strong>Space Complexity:</strong> O(1)
+        </p>
+        <p><strong>Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsJumpGame = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>];
+        <span class="hljs-keyword">const</span> canReachLastIndex = <span class="hljs-title function_">canJump</span>(numsJumpGame);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Can Reach Last Index?"</span>, canReachLastIndex); <span class="hljs-comment">// Output: true</span>
+        </code></div></div></pre>
+        <p>These are the solutions for the dynamic programming problems you provided. If you have any further questions
+            or need clarification, feel free to ask!</p>
+    </div><br />
+    <h2>Graph</h2><br />
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Clone Graph</h3>
+        <p><strong>Problem:</strong>
+            Given a reference of a node in a connected undirected graph. Return a deep copy (clone) of the graph.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span> {
+          <span class="hljs-title function_">constructor</span>(<span class="hljs-params">val, neighbors</span>) {
+            <span class="hljs-variable language_">this</span>.<span class="hljs-property">val</span> = val === <span class="hljs-literal">undefined</span> ? <span class="hljs-number">0</span> : val;
+            <span class="hljs-variable language_">this</span>.<span class="hljs-property">neighbors</span> = neighbors === <span class="hljs-literal">undefined</span> ? [] : neighbors;
+          }
+        }
+        
+        <span class="hljs-comment">/**
+         * Deeply clones a graph using DFS.
+         * <span class="hljs-doctag">@param</span> {<span class="hljs-type">Node</span>} <span class="hljs-variable">node</span> - The reference node in the graph.
+         * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">Node</span>} - The cloned graph.
+         */</span>
+        <span class="hljs-keyword">function</span> <span class="hljs-title function_">cloneGraph</span>(<span class="hljs-params">node</span>) {
+          <span class="hljs-keyword">if</span> (!node) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        
+          <span class="hljs-keyword">const</span> visited = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+        
+          <span class="hljs-comment">/**
+           * Recursive DFS function to clone the graph.
+           * <span class="hljs-doctag">@param</span> {<span class="hljs-type">Node</span>} <span class="hljs-variable">original</span> - The original node to clone.
+           * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">Node</span>} - The cloned node.
+           */</span>
+          <span class="hljs-keyword">const</span> <span class="hljs-title function_">dfs</span> = (<span class="hljs-params">original</span>) =&gt; {
+            <span class="hljs-keyword">if</span> (visited.<span class="hljs-title function_">has</span>(original.<span class="hljs-property">val</span>)) {
+              <span class="hljs-keyword">return</span> visited.<span class="hljs-title function_">get</span>(original.<span class="hljs-property">val</span>);
+            }
+        
+            <span class="hljs-keyword">const</span> cloned = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(original.<span class="hljs-property">val</span>);
+            visited.<span class="hljs-title function_">set</span>(original.<span class="hljs-property">val</span>, cloned);
+        
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> neighbor <span class="hljs-keyword">of</span> original.<span class="hljs-property">neighbors</span>) {
+              cloned.<span class="hljs-property">neighbors</span>.<span class="hljs-title function_">push</span>(<span class="hljs-title function_">dfs</span>(neighbor));
+            }
+        
+            <span class="hljs-keyword">return</span> cloned;
+          };
+        
+          <span class="hljs-keyword">return</span> <span class="hljs-title function_">dfs</span>(node);
+        }
+        </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example graph: 1 -- 2</span>
+        <span class="hljs-comment">//                |    |</span>
+        <span class="hljs-comment">//                4 -- 3</span>
+        
+        <span class="hljs-keyword">const</span> node1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">const</span> node2 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(<span class="hljs-number">2</span>);
+        <span class="hljs-keyword">const</span> node3 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(<span class="hljs-number">3</span>);
+        <span class="hljs-keyword">const</span> node4 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>(<span class="hljs-number">4</span>);
+        
+        node1.<span class="hljs-property">neighbors</span> = [node2, node4];
+        node2.<span class="hljs-property">neighbors</span> = [node1, node3];
+        node3.<span class="hljs-property">neighbors</span> = [node2, node4];
+        node4.<span class="hljs-property">neighbors</span> = [node1, node3];
+        
+        <span class="hljs-keyword">const</span> clonedGraph = <span class="hljs-title function_">cloneGraph</span>(node1);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Cloned Graph:"</span>, clonedGraph);
+        </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>Node</code> class represents a node in the graph with a value and an array of neighbors.</li>
+            <li>The <code>cloneGraph</code> function uses depth-first search (DFS) to create a deep copy of the graph.
+            </li>
+            <li>The DFS is implemented with a recursive helper function (<code>dfs</code>) that traverses the original
+                graph and creates the corresponding nodes in the cloned graph.</li>
+        </ul>
+        <h3>Course Schedule</h3>
+        <p><strong>Problem:</strong>
+            There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. Some courses may
+            have prerequisites, for example, to take course 0, you have to first take course 1, which is expressed as a
+            pair: [0,1]. Given the total number of courses and a list of prerequisite pairs, is it possible for you to
+            finish all courses?</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+         * Checks if it's possible to finish all courses based on prerequisites.
+         * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number</span>} <span class="hljs-variable">numCourses</span> - The total number of courses.
+         * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number[][]</span>} <span class="hljs-variable">prerequisites</span> - The list of prerequisite pairs.
+         * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">boolean</span>} - Whether it's possible to finish all courses.
+         */</span>
+        <span class="hljs-keyword">function</span> <span class="hljs-title function_">canFinish</span>(<span class="hljs-params">numCourses, prerequisites</span>) {
+          <span class="hljs-keyword">const</span> graph = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+          <span class="hljs-keyword">const</span> inDegree = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(numCourses).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>);
+        
+          <span class="hljs-comment">// Build adjacency list and calculate in-degrees</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [course, prerequisite] <span class="hljs-keyword">of</span> prerequisites) {
+            <span class="hljs-keyword">if</span> (!graph.<span class="hljs-title function_">has</span>(prerequisite)) {
+              graph.<span class="hljs-title function_">set</span>(prerequisite, []);
+            }
+            graph.<span class="hljs-title function_">get</span>(prerequisite).<span class="hljs-title function_">push</span>(course);
+            inDegree[course]++;
+          }
+        
+          <span class="hljs-keyword">const</span> queue = [];
+        
+          <span class="hljs-comment">// Initialize queue with courses having in-degree 0</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; inDegree.<span class="hljs-property">length</span>; i++) {
+            <span class="hljs-keyword">if</span> (inDegree[i] === <span class="hljs-number">0</span>) {
+              queue.<span class="hljs-title function_">push</span>(i);
+            }
+          }
+        
+          <span class="hljs-keyword">while</span> (queue.<span class="hljs-property">length</span>) {
+            <span class="hljs-keyword">const</span> currentCourse = queue.<span class="hljs-title function_">shift</span>();
+            <span class="hljs-keyword">if</span> (graph.<span class="hljs-title function_">has</span>(currentCourse)) {
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> nextCourse <span class="hljs-keyword">of</span> graph.<span class="hljs-title function_">get</span>(currentCourse)) {
+                inDegree[nextCourse]--;
+                <span class="hljs-keyword">if</span> (inDegree[nextCourse] === <span class="hljs-number">0</span>) {
+                  queue.<span class="hljs-title function_">push</span>(nextCourse);
+                }
+              }
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> inDegree.<span class="hljs-title function_">every</span>(<span class="hljs-function">(<span class="hljs-params">degree</span>) =&gt;</span> degree === <span class="hljs-number">0</span>);
+        }
+        </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numCourses = <span class="hljs-number">2</span>;
+        <span class="hljs-keyword">const</span> prerequisites = [[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]];
+        <span class="hljs-keyword">const</span> canFinishCourses = <span class="hljs-title function_">canFinish</span>(numCourses, prerequisites);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Can Finish All Courses?"</span>, canFinishCourses); <span class="hljs-comment">// Output: true</span>
+        </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>canFinish</code> function uses topological sorting with BFS to check if it's possible to
+                finish all courses.</li>
+            <li>It builds an adjacency list (<code>graph</code>) and an array to store in-degrees
+                (<code>inDegree</code>).</li>
+            <li>It initializes a queue with courses having in-degree 0 and updates in-degrees during BFS.</li>
+        </ul>
+        <h3>Pacific Atlantic Water Flow</h3>
+        <p><strong>Problem:</strong>
+            Given an m x n matrix of non-negative integers representing the height of each unit cell in a continent, the
+            "Pacific ocean" touches the left and top edges of the matrix, and the "Atlantic ocean" touches the right and
+            bottom edges. Water can only flow in four directions (up, down, left, or right) from a cell to another one
+            with height equal or lower. Find the list of grid coordinates where water can flow to both the Pacific and
+            Atlantic oceans.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+         * Finds coordinates where water can flow to both Pacific and Atlantic oceans.
+         * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number[][]</span>} <span class="hljs-variable">matrix</span> - The matrix representing the height of each cell.
+         * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">number[][]</span>} - List of coordinates.
+         */</span>
+        <span class="hljs-keyword">function</span> <span class="hljs-title function_">pacificAtlantic</span>(<span class="hljs-params">matrix</span>) {
+          <span class="hljs-keyword">if</span> (!matrix || matrix.<span class="hljs-property">length</span> === <span class="hljs-number">0</span> || matrix[<span class="hljs-number">0</span>].<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> [];
+          }
+        
+          <span class="hljs-keyword">const</span> m = matrix.<span class="hljs-property">length</span>;
+          <span class="hljs-keyword">const</span> n = matrix[<span class="hljs-number">0</span>].<span class="hljs-property">length</span>;
+          <span class="hljs-keyword">const</span> result = [];
+        
+          <span class="hljs-keyword">const</span> pacificQueue = [];
+          <span class="hljs-keyword">const</span> atlanticQueue = [];
+        
+          <span class="hljs-comment">// Add cells on left and top edges to Pacific queue</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            pacificQueue.<span class="hljs-title function_">push</span>([i, <span class="hljs-number">0</span>]);
+          }
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+            pacificQueue.<span class="hljs-title function_">push</span>([<span class="hljs-number">0</span>, i]);
+          }
+        
+          <span class="hljs-comment">// Add cells on right and bottom edges to Atlantic queue</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            atlanticQueue.<span class="hljs-title function_">push</span>([i, n - <span class="hljs-number">1</span>]);
+          }
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+            atlanticQueue.<span class="hljs-title function_">push</span>([m - <span class="hljs-number">1</span>, i]);
+          }
+        
+          <span class="hljs-comment">// Perform BFS for both Pacific and Atlantic</span>
+          <span class="hljs-keyword">const</span> <span class="hljs-title function_">bfs</span> = (<span class="hljs-params">queue</span>) =&gt; {
+            <span class="hljs-keyword">const</span> directions = [[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>]];
+            <span class="hljs-keyword">const</span> reachable = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(m).<span class="hljs-title function_">fill</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">map</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n).<span class="hljs-title function_">fill</span>(<span class="hljs-literal">false</span>));
+        
+            <span class="hljs-keyword">while</span> (queue.<span class="hljs-property">length</span>) {
+              <span class="hljs-keyword">const</span> [row, col] = queue.<span class="hljs-title function_">shift</span>();
+              reachable[row][col] = <span class="hljs-literal">true</span>;
+        
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [dx, dy] <span class="hljs-keyword">of</span> directions) {
+                <span class="hljs-keyword">const</span> newRow = row + dx;
+                <span class="hljs-keyword">const</span> newCol = col + dy;
+        
+                <span class="hljs-keyword">if</span> (
+                  newRow &gt;= <span class="hljs-number">0</span> &amp;&amp; newRow &lt; m &amp;&amp;
+                  newCol &gt;= <span class="hljs-number">0</span> &amp;&amp; newCol &lt; n &amp;&amp;
+                  !reachable[newRow][newCol] &amp;&amp;
+                  matrix[newRow][newCol] &gt;= matrix[row][col]
+                ) {
+                  queue.<span class="hljs-title function_">push</span>([newRow, newCol]);
+                }
+              }
+            }
+          };
+        
+          <span class="hljs-title function_">bfs</span>(pacificQueue);
+          <span class="hljs-title function_">bfs</span>(atlanticQueue);
+        
+          <span class="hljs-comment">// Check cells where water can flow to both oceans</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) {
+              <span class="hljs-keyword">if</span> (pacificQueue[i][j] &amp;&amp; atlanticQueue[i][j]) {
+                result.<span class="hljs-title function_">push</span>([i, j]);
+              }
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> result;
+        }
+        </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> matrix = [
+          [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>],
+          [<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>],
+          [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>],
+          [<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>],
+          [<span class="hljs-number">5</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>]
+        ];
+        <span class="hljs-keyword">const</span> waterFlowCoordinates = <span class="hljs-title function_">pacificAtlantic</span>(matrix);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Water Flow Coordinates:"</span>, waterFlowCoordinates);
+        </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>pacificAtlantic</code> function performs BFS from cells on the left and top edges to the
+                Pacific and from cells on the right and bottom edges to the Atlantic.</li>
+            <li>It marks reachable cells in separate arrays (<code>reachable</code>) for both oceans.</li>
+            <li>The final result contains coordinates where water can flow to both oceans.</li>
+        </ul>
+
+    </div>
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <p>Certainly! Let's continue with the solutions for the remaining LeetCode problems.</p>
+        <h3>Number of Islands</h3>
+        <p><strong>Problem:</strong>
+            Given a 2D grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by
+            water and is formed by connecting adjacent lands horizontally or vertically. Assume all four edges of the
+            grid are surrounded by water.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+         * Counts the number of islands in a 2D grid.
+         * <span class="hljs-doctag">@param</span> {<span class="hljs-type">character[][]</span>} <span class="hljs-variable">grid</span> - The 2D grid map.
+         * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">number</span>} - The number of islands.
+         */</span>
+        <span class="hljs-keyword">function</span> <span class="hljs-title function_">numIslands</span>(<span class="hljs-params">grid</span>) {
+          <span class="hljs-keyword">if</span> (!grid || grid.<span class="hljs-property">length</span> === <span class="hljs-number">0</span> || grid[<span class="hljs-number">0</span>].<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+          }
+        
+          <span class="hljs-keyword">const</span> m = grid.<span class="hljs-property">length</span>;
+          <span class="hljs-keyword">const</span> n = grid[<span class="hljs-number">0</span>].<span class="hljs-property">length</span>;
+          <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>;
+        
+          <span class="hljs-keyword">const</span> <span class="hljs-title function_">dfs</span> = (<span class="hljs-params">i, j</span>) =&gt; {
+            <span class="hljs-keyword">if</span> (i &lt; <span class="hljs-number">0</span> || i &gt;= m || j &lt; <span class="hljs-number">0</span> || j &gt;= n || grid[i][j] === <span class="hljs-string">'0'</span>) {
+              <span class="hljs-keyword">return</span>;
+            }
+        
+            grid[i][j] = <span class="hljs-string">'0'</span>; <span class="hljs-comment">// Mark current cell as visited</span>
+        
+            <span class="hljs-comment">// Explore adjacent cells</span>
+            <span class="hljs-title function_">dfs</span>(i + <span class="hljs-number">1</span>, j);
+            <span class="hljs-title function_">dfs</span>(i - <span class="hljs-number">1</span>, j);
+            <span class="hljs-title function_">dfs</span>(i, j + <span class="hljs-number">1</span>);
+            <span class="hljs-title function_">dfs</span>(i, j - <span class="hljs-number">1</span>);
+          };
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) {
+              <span class="hljs-keyword">if</span> (grid[i][j] === <span class="hljs-string">'1'</span>) {
+                count++;
+                <span class="hljs-title function_">dfs</span>(i, j);
+              }
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> count;
+        }
+        </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> grid = [
+          [<span class="hljs-string">'1'</span>,<span class="hljs-string">'1'</span>,<span class="hljs-string">'1'</span>,<span class="hljs-string">'1'</span>,<span class="hljs-string">'0'</span>],
+          [<span class="hljs-string">'1'</span>,<span class="hljs-string">'1'</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">'1'</span>,<span class="hljs-string">'0'</span>],
+          [<span class="hljs-string">'1'</span>,<span class="hljs-string">'1'</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">'0'</span>],
+          [<span class="hljs-string">'0'</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">'0'</span>,<span class="hljs-string">'0'</span>]
+        ];
+        <span class="hljs-keyword">const</span> islandCount = <span class="hljs-title function_">numIslands</span>(grid);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Number of Islands:"</span>, islandCount); <span class="hljs-comment">// Output: 1</span>
+        </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>numIslands</code> function uses depth-first search (DFS) to traverse the grid and mark visited
+                land cells.</li>
+            <li>It iterates through each cell in the grid and calls DFS when encountering unvisited land ('1') cells.
+            </li>
+        </ul>
+        <h3>Longest Consecutive Sequence</h3>
+        <p><strong>Problem:</strong>
+            Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+        </p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+         * Finds the length of the longest consecutive elements sequence.
+         * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number[]</span>} <span class="hljs-variable">nums</span> - The unsorted array of integers.
+         * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">number</span>} - The length of the longest consecutive sequence.
+         */</span>
+        <span class="hljs-keyword">function</span> <span class="hljs-title function_">longestConsecutive</span>(<span class="hljs-params">nums</span>) {
+          <span class="hljs-keyword">if</span> (!nums || nums.<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+          }
+        
+          <span class="hljs-keyword">const</span> numSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>(nums);
+          <span class="hljs-keyword">let</span> maxLength = <span class="hljs-number">0</span>;
+        
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> num <span class="hljs-keyword">of</span> numSet) {
+            <span class="hljs-keyword">if</span> (!numSet.<span class="hljs-title function_">has</span>(num - <span class="hljs-number">1</span>)) {
+              <span class="hljs-keyword">let</span> currentNum = num;
+              <span class="hljs-keyword">let</span> currentLength = <span class="hljs-number">1</span>;
+        
+              <span class="hljs-keyword">while</span> (numSet.<span class="hljs-title function_">has</span>(currentNum + <span class="hljs-number">1</span>)) {
+                currentNum++;
+                currentLength++;
+              }
+        
+              maxLength = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(maxLength, currentLength);
+            }
+          }
+        
+          <span class="hljs-keyword">return</span> maxLength;
+        }
+        </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> numsConsecutive = [<span class="hljs-number">100</span>, <span class="hljs-number">4</span>, <span class="hljs-number">200</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>];
+        <span class="hljs-keyword">const</span> longestSequenceLength = <span class="hljs-title function_">longestConsecutive</span>(numsConsecutive);
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Longest Consecutive Sequence Length:"</span>, longestSequenceLength); <span class="hljs-comment">// Output: 4</span>
+        </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>longestConsecutive</code> function uses a set to efficiently check for consecutive elements.
+            </li>
+            <li>It iterates through each number in the set, and if it's the start of a sequence (no predecessor in the
+                set), it extends the sequence to find the length.</li>
+        </ul>
+    </div>
+
+
+    <div class="markdown prose w-full break-words dark:prose-invert dark">
+        <h3>Alien Dictionary</h3>
+        <p><strong>Problem:</strong>
+            There is a new alien language that uses the English alphabet. However, the order among the letters is
+            unknown to you. You are given a list of words from the alien language, where the order of the words is
+            known. Write a function to determine the order of the letters in this alien language.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+             * Determines the order of letters in an alien language.
+             * <span class="hljs-doctag">@param</span> {<span class="hljs-type">string[]</span>} <span class="hljs-variable">words</span> - The list of words.
+             * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">string</span>} - The order of letters.
+             */</span>
+            <span class="hljs-keyword">function</span> <span class="hljs-title function_">alienOrder</span>(<span class="hljs-params">words</span>) {
+              <span class="hljs-keyword">const</span> graph = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+              <span class="hljs-keyword">const</span> inDegree = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Map</span>();
+            
+              <span class="hljs-comment">// Initialize in-degrees for all characters</span>
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> word <span class="hljs-keyword">of</span> words) {
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> char <span class="hljs-keyword">of</span> word) {
+                  inDegree.<span class="hljs-title function_">set</span>(char, <span class="hljs-number">0</span>);
+                  graph.<span class="hljs-title function_">set</span>(char, []);
+                }
+              }
+            
+              <span class="hljs-comment">// Build graph and update in-degrees</span>
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; words.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>; i++) {
+                <span class="hljs-keyword">const</span> word1 = words[i];
+                <span class="hljs-keyword">const</span> word2 = words[i + <span class="hljs-number">1</span>];
+            
+                <span class="hljs-keyword">if</span> (word1.<span class="hljs-property">length</span> &gt; word2.<span class="hljs-property">length</span> &amp;&amp; word1.<span class="hljs-title function_">startsWith</span>(word2)) {
+                  <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>; <span class="hljs-comment">// Invalid order, as longer words should come after shorter ones</span>
+                }
+            
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(word1.<span class="hljs-property">length</span>, word2.<span class="hljs-property">length</span>); j++) {
+                  <span class="hljs-keyword">const</span> char1 = word1[j];
+                  <span class="hljs-keyword">const</span> char2 = word2[j];
+            
+                  <span class="hljs-keyword">if</span> (char1 !== char2) {
+                    graph.<span class="hljs-title function_">get</span>(char1).<span class="hljs-title function_">push</span>(char2);
+                    inDegree.<span class="hljs-title function_">set</span>(char2, inDegree.<span class="hljs-title function_">get</span>(char2) + <span class="hljs-number">1</span>);
+                    <span class="hljs-keyword">break</span>;
+                  }
+                }
+              }
+            
+              <span class="hljs-keyword">const</span> result = [];
+              <span class="hljs-keyword">const</span> queue = [];
+            
+              <span class="hljs-comment">// Add characters with in-degree 0 to the queue</span>
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [char, degree] <span class="hljs-keyword">of</span> inDegree) {
+                <span class="hljs-keyword">if</span> (degree === <span class="hljs-number">0</span>) {
+                  queue.<span class="hljs-title function_">push</span>(char);
+                }
+              }
+            
+              <span class="hljs-comment">// Perform topological sorting</span>
+              <span class="hljs-keyword">while</span> (queue.<span class="hljs-property">length</span>) {
+                <span class="hljs-keyword">const</span> currentChar = queue.<span class="hljs-title function_">shift</span>();
+                result.<span class="hljs-title function_">push</span>(currentChar);
+            
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> nextChar <span class="hljs-keyword">of</span> graph.<span class="hljs-title function_">get</span>(currentChar)) {
+                  inDegree.<span class="hljs-title function_">set</span>(nextChar, inDegree.<span class="hljs-title function_">get</span>(nextChar) - <span class="hljs-number">1</span>);
+                  <span class="hljs-keyword">if</span> (inDegree.<span class="hljs-title function_">get</span>(nextChar) === <span class="hljs-number">0</span>) {
+                    queue.<span class="hljs-title function_">push</span>(nextChar);
+                  }
+                }
+              }
+            
+              <span class="hljs-comment">// Check if all characters are visited</span>
+              <span class="hljs-keyword">return</span> result.<span class="hljs-property">length</span> === inDegree.<span class="hljs-property">size</span> ? result.<span class="hljs-title function_">join</span>(<span class="hljs-string">''</span>) : <span class="hljs-string">''</span>;
+            }
+            </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> alienWords = [<span class="hljs-string">"wrt"</span>, <span class="hljs-string">"wrf"</span>, <span class="hljs-string">"er"</span>, <span class="hljs-string">"ett"</span>, <span class="hljs-string">"rftt"</span>];
+            <span class="hljs-keyword">const</span> alienOrderResult = <span class="hljs-title function_">alienOrder</span>(alienWords);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Alien Dictionary Order:"</span>, alienOrderResult); <span class="hljs-comment">// Output: "wertf"</span>
+            </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>alienOrder</code> function builds a graph from the given words and performs topological
+                sorting to find the order of letters.</li>
+            <li>It uses an adjacency list (<code>graph</code>) to represent the relationships between letters.</li>
+            <li>The in-degrees of each character are maintained to identify the starting points for the topological
+                sorting.</li>
+        </ul>
+        <h3>Graph Valid Tree</h3>
+        <p><strong>Problem:</strong>
+            Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a
+            function to check whether these edges make up a valid tree.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+             * Checks if the given edges form a valid tree.
+             * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number</span>} <span class="hljs-variable">n</span> - The number of nodes.
+             * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number[][]</span>} <span class="hljs-variable">edges</span> - The list of undirected edges.
+             * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">boolean</span>} - Whether the edges form a valid tree.
+             */</span>
+            <span class="hljs-keyword">function</span> <span class="hljs-title function_">validTree</span>(<span class="hljs-params">n, edges</span>) {
+              <span class="hljs-keyword">const</span> parent = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n).<span class="hljs-title function_">fill</span>(-<span class="hljs-number">1</span>);
+            
+              <span class="hljs-keyword">const</span> <span class="hljs-title function_">find</span> = (<span class="hljs-params">node</span>) =&gt; {
+                <span class="hljs-keyword">if</span> (parent[node] === -<span class="hljs-number">1</span>) {
+                  <span class="hljs-keyword">return</span> node;
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-title function_">find</span>(parent[node]);
+              };
+            
+              <span class="hljs-keyword">const</span> <span class="hljs-title function_">union</span> = (<span class="hljs-params">node1, node2</span>) =&gt; {
+                <span class="hljs-keyword">const</span> root1 = <span class="hljs-title function_">find</span>(node1);
+                <span class="hljs-keyword">const</span> root2 = <span class="hljs-title function_">find</span>(node2);
+            
+                <span class="hljs-keyword">if</span> (root1 === root2) {
+                  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// Cycle detected</span>
+                }
+            
+                parent[root1] = root2;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+              };
+            
+              <span class="hljs-comment">// Check for a cycle and connectivity</span>
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [node1, node2] <span class="hljs-keyword">of</span> edges) {
+                <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">union</span>(node1, node2)) {
+                  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">// Cycle detected</span>
+                }
+              }
+            
+              <span class="hljs-comment">// Check if all nodes are connected</span>
+              <span class="hljs-keyword">let</span> connectedComponents = <span class="hljs-number">0</span>;
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+                <span class="hljs-keyword">if</span> (parent[i] === -<span class="hljs-number">1</span>) {
+                  connectedComponents++;
+                }
+              }
+            
+              <span class="hljs-keyword">return</span> connectedComponents === <span class="hljs-number">1</span>;
+            }
+            </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> nodes = <span class="hljs-number">5</span>;
+            <span class="hljs-keyword">const</span> edgesForTree = [[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>], [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">0</span>,<span class="hljs-number">3</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>]];
+            <span class="hljs-keyword">const</span> isValidTree = <span class="hljs-title function_">validTree</span>(nodes, edgesForTree);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Is Valid Tree?"</span>, isValidTree); <span class="hljs-comment">// Output: true</span>
+            </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>validTree</code> function uses the Union-Find algorithm to check for cycles and connectivity.
+            </li>
+            <li>It maintains an array (<code>parent</code>) to represent the disjoint sets of nodes.</li>
+            <li>The function iterates through the edges, and if a cycle is detected, it returns <code>false</code>.</li>
+            <li>After processing all edges, it checks if all nodes are connected, i.e., there is only one connected
+                component.</li>
+        </ul>
+        <h3>Number of Connected Components in an Undirected Graph</h3>
+        <p><strong>Problem:</strong>
+            Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a
+            function to find the number of connected components in an undirected graph.</p>
+        <p><strong>Solution:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">/**
+             * Finds the number of connected components in an undirected graph.
+             * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number</span>} <span class="hljs-variable">n</span> - The number of nodes.
+             * <span class="hljs-doctag">@param</span> {<span class="hljs-type">number[][]</span>} <span class="hljs-variable">edges</span> - The list of undirected edges.
+             * <span class="hljs-doctag">@returns</span> {<span class="hljs-type">number</span>} - The number of connected components.
+             */</span>
+            <span class="hljs-keyword">function</span> <span class="hljs-title function_">countComponents</span>(<span class="hljs-params">n, edges</span>) {
+              <span class="hljs-keyword">const</span> parent = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>(n).<span class="hljs-title function_">fill</span>(-<span class="hljs-number">1</span>);
+            
+              <span class="hljs-keyword">const</span> <span class="hljs-title function_">find</span> = (<span class="hljs-params">node</span>) =&gt; {
+                <span class="hljs-keyword">if</span> (parent[node] === -<span class="hljs-number">1</span>) {
+                  <span class="hljs-keyword">return</span> node;
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-title function_">find</span>(parent[node]);
+              };
+            
+              <span class="hljs-keyword">const</span> <span class="hljs-title function_">union</span> = (<span class="hljs-params">node1, node2</span>) =&gt; {
+                <span class="hljs-keyword">const</span> root1 = <span class="hljs-title function_">find</span>(node1);
+                <span class="hljs-keyword">const</span> root2 = <span class="hljs-title function_">find</span>(node2);
+            
+                <span class="hljs-keyword">if</span> (root1 !== root2) {
+                  parent[root1] = root2;
+                }
+              };
+            
+              <span class="hljs-comment">// Union-Find to find connected components</span>
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> [node1, node2] <span class="hljs-keyword">of</span> edges) {
+                <span class="hljs-title function_">union</span>(node1, node2);
+              }
+            
+              <span class="hljs-comment">// Count the number of unique roots (connected components)</span>
+              <span class="hljs-keyword">const</span> uniqueRoots = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Set</span>();
+              <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+                uniqueRoots.<span class="hljs-title function_">add</span>(<span class="hljs-title function_">find</span>(i));
+              }
+            
+              <span class="hljs-keyword">return</span> uniqueRoots.<span class="hljs-property">size</span>;
+            }
+            </code></div></div></pre>
+        <p><strong>Usage Example:</strong></p>
+        <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> nodesForCount = <span class="hljs-number">5</span>;
+            <span class="hljs-keyword">const</span> edgesForCount = [[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>], [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]];
+            <span class="hljs-keyword">const</span> connectedComponentsCount = <span class="hljs-title function_">countComponents</span>(nodesForCount, edgesForCount);
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">"Connected Components Count:"</span>, connectedComponentsCount); <span class="hljs-comment">// Output: 2</span>
+            </code></div></div></pre>
+        <p><strong>Comments:</strong></p>
+        <ul>
+            <li>The <code>countComponents</code> function also uses the Union-Find algorithm to find connected
+                components.</li>
+            <li>It maintains an array (<code>parent</code>) to represent the disjoint sets of nodes.</li>
+            <li>The function iterates through the edges, performing unions.</li>
+            <li>It then counts the number of unique roots to determine the number of connected components.</li>
+        </ul>
+    </div>
+
+    <p>
+        Left:
+        <br />
+        Interval
+        Insert Interval
+        Merge Intervals
+        Non-overlapping Intervals
+        Meeting Rooms (Leetcode Premium)
+        Meeting Rooms II (Leetcode Premium)
+        <br />
+        Linked List
+        <br />
+        Reverse a Linked List
+        Detect Cycle in a Linked List
+        Merge Two Sorted Lists
+        Merge K Sorted Lists
+        Remove Nth Node From End Of List
+        Reorder List
+        <br />
+        Matrix
+        <br />
+        Set Matrix Zeroes
+        Spiral Matrix
+        Rotate Image
+        Word Search
+        <br />
+        String
+        <br />
+        Longest Substring Without Repeating Characters
+        Longest Repeating Character Replacement
+        Minimum Window Substring
+        Valid Anagram
+        Group Anagrams
+        Valid Parentheses
+        Valid Palindrome
+        Longest Palindromic Substring
+        Palindromic Substrings
+        Encode and Decode Strings (Leetcode Premium)
+        <br />
+        Tree
+        <br />
+        Maximum Depth of Binary Tree
+        Same Tree
+        Invert/Flip Binary Tree
+        Binary Tree Maximum Path Sum
+        Binary Tree Level Order Traversal
+        Serialize and Deserialize Binary Tree
+        Subtree of Another Tree
+        Construct Binary Tree from Preorder and Inorder Traversal
+        Validate Binary Search Tree
+        Kth Smallest Element in a BST
+        Lowest Common Ancestor of BST
+        Implement Trie (Prefix Tree)
+        Add and Search Word
+        Word Search II
+        <br />
+        Heap
+        <br />
+        Merge K Sorted Lists
+        Top K Frequent Elements
+        Find Median from Data Stream
+
+    </p>
+
+
+
+    <script defer>
+        setTimeout(() => {
+            const codeTags = document.querySelectorAll('code');
+
+            codeTags.forEach(codeTag => {
+                const classes = codeTag.classList.value.split(' '); // Get all classes
+                console.log(classes)
+                const filteredClasses = classes.filter(c => c !== 'language-javascript'); // Keep !whitespace-pre
+                codeTag.classList.value = filteredClasses.join(' '); // Set classes back with !whitespace-pre
+            });
+        }, 2000)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Java Interview Questions & Answers by Mohd Azam</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./prism.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="./prism.js"></script>
+    
+    <style>
+        ul,
+        ol {
+            padding-left: 10px !important;
+        }
+        .overflow-y-auto{
+            width: 1000px;
+        }
+        .language-java{
+            background-color: black;
+        }
+        li{
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="jumbotron text-center">
+        <h3>Java Interview Questions & Answers by Mohd Azam</h3>
+        <p>Entry, Mid and Senior Level</p>
+    </div>
+    
+    <ul class="">
+
+        <li>
+            <p><strong>What are the four main principles of OOPS?</strong></p>
+            <ul>
+                <li>Answer: Encapsulation, Inheritance, Polymorphism, Abstraction.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain Encapsulation in OOPS.</strong></p>
+            <ul>
+                <li>Answer: Wrapping data and methods together.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">private</span> <span class="hljs-type">int</span> age;
+</code></pre>
+        </li>
+        <li>
+            <p><strong>How does Inheritance work in Java?</strong></p>
+            <ul>
+                <li>Answer: Creating new classes using existing ones.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ChildClass</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ParentClass</span> {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>Define Polymorphism in OOPS.</strong></p>
+            <ul>
+                <li>Answer: Using a common interface for different types.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">void</span> <span class="hljs-title function_">printInfo</span><span class="hljs-params">()</span> {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>What is Abstraction, and why is it important?</strong></p>
+            <ul>
+                <li>Answer: Simplifying complex systems.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Shape</span> {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>Differentiate between Interface and Abstract Class.</strong></p>
+            <ul>
+                <li>Answer: Interface for full abstraction, Abstract Class for partial.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyInterface</span> {}
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the concept of Method Overloading.</strong></p>
+            <ul>
+                <li>Answer: Having multiple methods with the same name.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">void</span> <span class="hljs-title function_">display</span><span class="hljs-params">(<span class="hljs-type">int</span> num)</span> {}
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">display</span><span class="hljs-params">(String str)</span> {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>What is Method Overriding?</strong></p>
+            <ul>
+                <li>Answer: Redefining a method in the subclass.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-meta">@Override</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title function_">display</span><span class="hljs-params">()</span> {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>How does Java support multiple inheritances through interfaces?</strong></p>
+            <ul>
+                <li>Answer: Implementing multiple interfaces.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Interface1</span>, Interface2 {}
+</code></pre>
+        </li>
+        <li>
+            <p><strong>Describe the concept of Object in OOPS.</strong></p>
+        </li>
+        </ul>
+        <ul>
+            <li>Answer: An instance of a class.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-type">MyClass</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyClass</span>();
+</code></pre>
+
+        <li><strong>What is the difference between Composition and Inheritance?</strong></li>
+        </ul>
+        <ul>
+            <li>Answer: Composition "has-a" relationship, Inheritance "is-a."</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Engine</span> {}
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+   <span class="hljs-keyword">private</span> <span class="hljs-type">Engine</span> <span class="hljs-variable">engine</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Engine</span>();
+}
+</code></pre>
+
+        <li><strong>Explain the purpose of the 'super' keyword in Java.</strong></li>
+        </ul>
+        <ul>
+            <li>Answer: Refers to the superclass.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-built_in">super</span>.display();
+</code></pre>
+
+        <li><strong>Discuss the significance of the 'final' keyword in Java.</strong></li>
+        </ul>
+        <ul>
+            <li>Answer: Makes a variable, method, or class unmodifiable.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MAX_SIZE</span> <span class="hljs-operator">=</span> <span class="hljs-number">10</span>;
+</code></pre>
+
+        <li><strong>What is the role of the 'this' keyword?</strong></li>
+        </ul>
+        <ul>
+            <li>Answer: Refers to the current object.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-built_in">this</span>.name = name;
+</code></pre>
+
+        <li><strong>Define the Singleton design pattern.</strong></li>
+        </ul>
+        <ul>
+            <li>Answer: Ensures a class has only one instance.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Singleton</span> {
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-type">Singleton</span> <span class="hljs-variable">instance</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Singleton</span>();
+    <span class="hljs-keyword">private</span> <span class="hljs-title function_">Singleton</span><span class="hljs-params">()</span> {}
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title function_">getInstance</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> instance;
+    }
+}
+</code></pre>
+        <li>
+            <p><strong>What are the main features introduced in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> Java 8 brought cool features like a way to write short and sweet functions (Lambda
+                    Expressions), a fancy way to manipulate lists (Stream API), and some other goodies for interfaces.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the concept of Lambda Expressions.</strong></p>
+            <ul>
+                <li><em>Answer:</em> Think of Lambda Expressions as shortcuts for writing methods. It's like saying,
+                    "Hey Java, do this!" in a shorter way.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Lambda Expression</span>
+    (a, b) -&gt; a + b;
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the functional interface in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> A functional interface is like a contract with only one rule: it must have just one
+                    job to do. For instance, a chef interface must have only one recipe to cook.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Functional Interface</span>
+    <span class="hljs-meta">@FunctionalInterface</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyFunction</span> {
+        <span class="hljs-type">int</span> <span class="hljs-title function_">operate</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span>;
+    }
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the default methods in interfaces.</strong></p>
+            <ul>
+                <li><em>Answer:</em> Default methods in interfaces are like adding new moves to a dance routine without
+                    confusing the dancers. Everyone keeps dancing, but new moves are allowed.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Default Method</span>
+    <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyInterface</span> {
+        <span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">myMethod</span><span class="hljs-params">()</span> {
+            System.out.println(<span class="hljs-string">"Default method"</span>);
+        }
+    }
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the significance of the 'stream' API in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> The Stream API is like a magic wand for lists. It lets you perform operations on a
+                    list, like filtering names or transforming numbers, in a fancy way.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Stream API</span>
+    List&lt;String&gt; myList = Arrays.asList(<span class="hljs-string">"Java"</span>, <span class="hljs-string">"8"</span>, <span class="hljs-string">"Stream"</span>, <span class="hljs-string">"API"</span>);
+    myList.stream().filter(s -&gt; s.length() &gt; <span class="hljs-number">2</span>).forEach(System.out::println);
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>How does the 'Optional' class work?</strong></p>
+            <ul>
+                <li><em>Answer:</em> Optional is like a gift box that may or may not contain a present. It helps avoid a
+                    scenario where you open an empty box and get disappointed.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Optional</span>
+    Optional&lt;String&gt; optionalString = Optional.of(<span class="hljs-string">"Java 8"</span>);
+    <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> optionalString.orElse(<span class="hljs-string">"Default Value"</span>);
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>What is a Predicate in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> A Predicate is like a judge asking a yes-or-no question. It helps in deciding
+                    whether something is true or false.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Predicate</span>
+    Predicate&lt;Integer&gt; isEven = n -&gt; n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>;
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the concept of method references.</strong></p>
+            <ul>
+                <li><em>Answer:</em> Method references are like saying, "Do what that guy is doing!" It's a way to use
+                    existing methods in a shorter and cleaner manner.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Method Reference</span>
+    myList.forEach(System.out::println);
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the 'forEach' method in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> The <code>forEach</code> method is like a tour guide taking you to each spot in a
+                    city. It helps you visit every element in a list.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of forEach</span>
+    myList.forEach(System.out::println);
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the 'Collector' interface in Java 8.</strong></p>
+            <ul>
+                <li><em>Answer:</em> The Collector interface is like a bag where you collect cool things while walking
+                    around. It gathers elements and does something useful with them.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Collector</span>
+    List&lt;String&gt; myList = Arrays.asList(<span class="hljs-string">"Java"</span>, <span class="hljs-string">"8"</span>, <span class="hljs-string">"Collector"</span>, <span class="hljs-string">"API"</span>);
+    <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> myList.stream().collect(Collectors.joining(<span class="hljs-string">", "</span>));
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>How does the 'flatMap' function work in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> <code>flatMap</code> is like a magic carpet that flattens nested things. It makes
+                    nested lists simpler and easier to deal with.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of flatMap</span>
+    List&lt;List&lt;Integer&gt;&gt; nestedList = Arrays.asList(Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), Arrays.asList(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>));
+    List&lt;Integer&gt; flattenedList = nestedList.stream().flatMap(List::stream).collect(Collectors.toList());
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the purpose of the 'java.time' package?</strong></p>
+            <ul>
+                <li><em>Answer:</em> The <code>java.time</code> package is like a new calendar with better features. It
+                    helps handle dates and times more efficiently and with fewer headaches.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of java.time package</span>
+    <span class="hljs-type">LocalDate</span> <span class="hljs-variable">today</span> <span class="hljs-operator">=</span> LocalDate.now();
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the concept of the 'Supplier' interface.</strong></p>
+            <ul>
+                <li><em>Answer:</em> A Supplier is like a delivery person. It supplies something when you ask for it,
+                    but it won't supply until you ask.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of Supplier</span>
+    Supplier&lt;String&gt; supplier = () -&gt; <span class="hljs-string">"Hello, Supplier!"</span>;
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the 'CompletableFuture' class in Java 8.</strong></p>
+            <ul>
+                <li><em>Answer:</em> <code>CompletableFuture</code> is like ordering food and going on with your day. It
+                    handles tasks in the background and lets you know when the food is ready.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of CompletableFuture</span>
+    CompletableFuture&lt;String&gt; future = CompletableFuture.supplyAsync(() -&gt; <span class="hljs-string">"Hello"</span>);
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the 'peek' method in Java 8?</strong></p>
+            <ul>
+                <li><em>Answer:</em> The <code>peek</code> method is like a sneak peek behind the scenes. It lets you
+                    watch what's happening without disturbing the main show.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of peek</span>
+    myList.stream().peek(System.out::println).collect(Collectors.toList());
+    </code></pre>
+        </li>
+        <li>
+            <p><strong>Equals Method for Employee Object:</strong></p>
+            <ul>
+                <li>The equals method in an Employee class checks if two employees are
+                    considered equal based on their unique employee IDs. It's like comparing two ID cards to see if
+                    they belong to the same person.</li>
+            </ul>
+            <pre class='language-java'><code class="language-java"><span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">equals</span><span class="hljs-params">(Object obj)</span> {
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span> == obj) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">if</span> (obj == <span class="hljs-literal">null</span> || getClass() != obj.getClass()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            <span class="hljs-type">Employee</span> <span class="hljs-variable">employee</span> <span class="hljs-operator">=</span> (Employee) obj;
+            <span class="hljs-keyword">return</span> Objects.equals(employeeId, employee.employeeId);
+        }
+        </code></pre>
+        </li>
+        <li>
+            <p><strong>HashMap vs. Hashtable Difference:</strong></p>
+            <ul>
+                <li>HashMap is like a modern, carefree friend; it allows nulls and isn't
+                    bothered about order. On the other hand, Hashtable is like a meticulous, organized friend; it's
+                    synchronized, doesn't allow nulls, and maintains order.</li>
+            </ul>
+            <pre class='language-java'><code class="language-java"><span class="hljs-comment">// HashMap example</span>
+        Map&lt;String, String&gt; hashMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+        hashMap.put(<span class="hljs-string">"one"</span>, <span class="hljs-string">"first"</span>);
+        hashMap.put(<span class="hljs-string">"two"</span>, <span class="hljs-string">"second"</span>);
+        
+        <span class="hljs-comment">// Hashtable example</span>
+        Hashtable&lt;String, String&gt; hashtable = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Hashtable</span>&lt;&gt;();
+        hashtable.put(<span class="hljs-string">"one"</span>, <span class="hljs-string">"first"</span>);
+        hashtable.put(<span class="hljs-string">"two"</span>, <span class="hljs-string">"second"</span>);
+        </code></pre>
+        </li>
+        <li>
+            <p><strong>Exception Handling - Controller Advice:</strong></p>
+            <ul>
+                <li>@ControllerAdvice in Spring is like a guardian for your controllers. It
+                    globally handles exceptions, ensuring a consistent response. It's as if you have a
+                    troubleshooter for your entire application.</li>
+            </ul>
+            <pre class='language-java'><code class="language-java"><span class="hljs-meta">@ControllerAdvice</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GlobalExceptionHandler</span> {
+            <span class="hljs-meta">@ExceptionHandler(Exception.class)</span>
+            <span class="hljs-keyword">public</span> ResponseEntity&lt;String&gt; <span class="hljs-title function_">handleException</span><span class="hljs-params">(Exception ex)</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ResponseEntity</span>&lt;&gt;(<span class="hljs-string">"Something went wrong!"</span>, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        </code></pre>
+        </li>
+        <li>
+            <p><strong>Collections API:</strong></p>
+            <ul>
+                <li>Java Collections API is like a toolbox for managing collections of things.
+                    For instance, a List is like a dynamic array, and a Map is like a dictionary.</li>
+            </ul>
+            <pre class='language-java'><code class="language-java"><span class="hljs-comment">// List example</span>
+        List&lt;String&gt; namesList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+        namesList.add(<span class="hljs-string">"Alice"</span>);
+        namesList.add(<span class="hljs-string">"Bob"</span>);
+        
+        <span class="hljs-comment">// Map example</span>
+        Map&lt;String, Integer&gt; ageMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();
+        ageMap.put(<span class="hljs-string">"Alice"</span>, <span class="hljs-number">30</span>);
+        ageMap.put(<span class="hljs-string">"Bob"</span>, <span class="hljs-number">25</span>);
+        </code></pre>
+        </li>
+        <li>
+            <p><strong>Spring Profiling:</strong></p>
+            <ul>
+                <li>Spring Profiling lets you configure different settings based on the
+                    environment. It's like having different configurations for development, testing, and production.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="language-java"><span class="hljs-meta">@Service</span>
+        <span class="hljs-meta">@Profile("dev")</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DevService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MyService</span> {
+            <span class="hljs-comment">// Implementation for development profile</span>
+        }
+        
+        <span class="hljs-meta">@Service</span>
+        <span class="hljs-meta">@Profile("prod")</span>
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ProdService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MyService</span> {
+            <span class="hljs-comment">// Implementation for production profile</span>
+        }
+        </code></pre>
+        </li>
+        </ul>
+
+        <li>
+            <p><strong>Immutable Classes in Java:</strong></p>
+            <ul>
+                <li>Immutable classes are like sealed letters; once created, they remain
+                    unchanged. For example, String and LocalDate are immutable in Java.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Immutable class example</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ImmutablePerson</span> {
+                <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;
+            
+                <span class="hljs-keyword">public</span> <span class="hljs-title function_">ImmutablePerson</span><span class="hljs-params">(String name)</span> {
+                    <span class="hljs-built_in">this</span>.name = name;
+                }
+            
+                <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> {
+                    <span class="hljs-keyword">return</span> name;
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Final and Immutable Difference:</strong></p>
+            <ul>
+                <li>Final makes something unmodifiable, like a constant value. Immutable means
+                    the entire object cannot be modified once created. For instance, a final variable is like a
+                    constant, while an immutable class doesn't allow changes to any of its properties.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Final variable example</span>
+            <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">MAX_VALUE</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>;
+            
+            <span class="hljs-comment">// Immutable class example (from the previous answer)</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Code Coverage Configuration - SonarQube:</strong></p>
+            <ul>
+                <li>SonarQube is like a code detective. Code coverage configuration involves
+                    using tools like JaCoCo to check how much of your code is tested. It's similar to counting the
+                    percentage of a book read.</li>
+            </ul>
+            <p>Example: Integrating JaCoCo in your Maven build.</p>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Maven POM file --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.jacoco<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jacoco-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.8.7<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>prepare-agent<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>report<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">phase</span>&gt;</span>prepare-package<span class="hljs-tag">&lt;/<span class="hljs-name">phase</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>report<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Runtime Polymorphism vs. Compile Time Polymorphism:</strong></p>
+            <ul>
+                <li>Compile-time polymorphism (method overloading) is like having multiple
+                    doors with the same function but different keys. Runtime polymorphism (method overriding) is
+                    like having the same door, but it opens differently based on who uses it.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Compile-time polymorphism (method overloading)</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Calculator</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> {
+                    <span class="hljs-keyword">return</span> a + b;
+                }
+            
+                <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">add</span><span class="hljs-params">(<span class="hljs-type">double</span> a, <span class="hljs-type">double</span> b)</span> {
+                    <span class="hljs-keyword">return</span> a + b;
+                }
+            }
+            
+            <span class="hljs-comment">// Runtime polymorphism (method overriding)</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">makeSound</span><span class="hljs-params">()</span> {
+                    System.out.println(<span class="hljs-string">"Animal makes a sound"</span>);
+                }
+            }
+            
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">makeSound</span><span class="hljs-params">()</span> {
+                    System.out.println(<span class="hljs-string">"Dog barks"</span>);
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Types of Dependency Injection in Spring:</strong></p>
+            <ul>
+                <li>Dependency injection is like providing the ingredients for a recipe. There
+                    are three types:<ul>
+                        <li><strong>Constructor Injection:</strong> Providing dependencies through the constructor.
+                        </li>
+                        <li><strong>Setter Injection:</strong> Providing dependencies using setter methods.</li>
+                        <li><strong>Field Injection:</strong> Providing dependencies directly into fields.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Constructor Injection</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+                <span class="hljs-keyword">private</span> Engine engine;
+            
+                <span class="hljs-keyword">public</span> <span class="hljs-title function_">Car</span><span class="hljs-params">(Engine engine)</span> {
+                    <span class="hljs-built_in">this</span>.engine = engine;
+                }
+            }
+            
+            <span class="hljs-comment">// Setter Injection</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MobilePhone</span> {
+                <span class="hljs-keyword">private</span> Battery battery;
+            
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setBattery</span><span class="hljs-params">(Battery battery)</span> {
+                    <span class="hljs-built_in">this</span>.battery = battery;
+                }
+            }
+            
+            <span class="hljs-comment">// Field Injection</span>
+            <span class="hljs-meta">@Service</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ProductService</span> {
+                <span class="hljs-meta">@Autowired</span>
+                <span class="hljs-keyword">private</span> ProductRepository productRepository;
+            }
+            </code></pre>
+        </li>
+        </ul>
+
+        <li>
+            <p><strong>Object-Oriented Programming (OOPS): Explain the four main principles of OOPS.</strong></p>
+            <ul>
+                <li>Object-Oriented Programming (OOPS) is like building with Lego blocks. The four main principles
+                    are:<ul>
+                        <li><strong>Encapsulation:</strong> Wrapping data and methods into a single unit (class).
+                        </li>
+                        <li><strong>Inheritance:</strong> Creating new classes by reusing existing ones.</li>
+                        <li><strong>Polymorphism:</strong> Using a common interface for different types.</li>
+                        <li><strong>Abstraction:</strong> Simplifying complex systems.</li>
+                    </ul>
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example demonstrating OOPS principles</span>
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> {
+                String name;
+            
+                Animal(String name) {
+                    <span class="hljs-built_in">this</span>.name = name;
+                }
+            
+                <span class="hljs-keyword">void</span> <span class="hljs-title function_">makeSound</span><span class="hljs-params">()</span> {
+                    System.out.println(<span class="hljs-string">"Animal makes a sound"</span>);
+                }
+            }
+            
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> {
+                Dog(String name) {
+                    <span class="hljs-built_in">super</span>(name);
+                }
+            
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">void</span> <span class="hljs-title function_">makeSound</span><span class="hljs-params">()</span> {
+                    System.out.println(<span class="hljs-string">"Dog barks"</span>);
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the use of Abstract class in Java?</strong></p>
+            <ul>
+                <li>Abstract classes are like blueprints with incomplete details. They allow defining abstract
+                    methods to be implemented by subclasses.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of an abstract class</span>
+            <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Shape</span> {
+                <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">draw</span><span class="hljs-params">()</span>; <span class="hljs-comment">// Abstract method</span>
+            }
+            
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Circle</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Shape</span> {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">void</span> <span class="hljs-title function_">draw</span><span class="hljs-params">()</span> {
+                    System.out.println(<span class="hljs-string">"Drawing a circle"</span>);
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How does your Java application interact with the Database?</strong></p>
+            <ul>
+                <li>Java interacts with databases using JDBC (Java Database Connectivity). It involves creating a
+                    connection, executing queries, and processing results.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using JDBC to interact with a database</span>
+            <span class="hljs-keyword">try</span> (<span class="hljs-type">Connection</span> <span class="hljs-variable">connection</span> <span class="hljs-operator">=</span> DriverManager.getConnection(url, username, password);
+                 <span class="hljs-type">Statement</span> <span class="hljs-variable">statement</span> <span class="hljs-operator">=</span> connection.createStatement()) {
+            
+                <span class="hljs-type">ResultSet</span> <span class="hljs-variable">resultSet</span> <span class="hljs-operator">=</span> statement.executeQuery(<span class="hljs-string">"SELECT * FROM employees"</span>);
+                <span class="hljs-keyword">while</span> (resultSet.next()) {
+                    System.out.println(<span class="hljs-string">"Employee ID: "</span> + resultSet.getInt(<span class="hljs-string">"employee_id"</span>));
+                }
+            
+            } <span class="hljs-keyword">catch</span> (SQLException e) {
+                e.printStackTrace();
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Which JDBC drivers have you used?</strong></p>
+            <ul>
+                <li>Examples include MySQL Connector/J, Oracle JDBC Driver, and Microsoft SQL Server JDBC Driver.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is a Callable Statement?</strong></p>
+            <ul>
+                <li>A CallableStatement in JDBC is like a prepared script. It is used for calling stored procedures
+                    and executing dynamic SQL queries.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using CallableStatement to call a stored procedure</span>
+            <span class="hljs-keyword">try</span> (<span class="hljs-type">CallableStatement</span> <span class="hljs-variable">cs</span> <span class="hljs-operator">=</span> connection.prepareCall(<span class="hljs-string">"{call my_stored_procedure(?)}"</span>)) {
+                cs.setInt(<span class="hljs-number">1</span>, <span class="hljs-number">123</span>);
+                cs.execute();
+            } <span class="hljs-keyword">catch</span> (SQLException e) {
+                e.printStackTrace();
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is Abstraction?</strong></p>
+            <ul>
+                <li>Abstraction is like driving a car without knowing its internal details. It simplifies complex
+                    systems by focusing on essential features, like defining interfaces without implementation
+                    details.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of abstraction</span>
+            <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Vehicle</span> {
+                <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">start</span><span class="hljs-params">()</span>;
+            }
+            
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Vehicle</span> {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">void</span> <span class="hljs-title function_">start</span><span class="hljs-params">()</span> {
+                    System.out.println(<span class="hljs-string">"Car started"</span>);
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is a Collection?</strong></p>
+            <ul>
+                <li>In Java, a Collection is like a container for objects. It provides a framework for storing and
+                    manipulating groups of objects, such as ArrayList for lists of elements.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using ArrayList (a type of Collection)</span>
+            List&lt;String&gt; names = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+            names.add(<span class="hljs-string">"Alice"</span>);
+            names.add(<span class="hljs-string">"Bob"</span>);
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the difference between ArrayList and LinkedList?</strong></p>
+            <ul>
+                <li>ArrayList is like an array with dynamic sizing, suitable for fast access. LinkedList is like a
+                    chain, suitable for frequent insertions and deletions.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example demonstrating the difference</span>
+            List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+            List&lt;String&gt; linkedList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>();
+            </code></pre>
+        </li>
+        </ul>
+
+        <li>
+            <p><strong>Java 8: Explain the concept of functional interfaces in Java.</strong></p>
+            <ul>
+                <li>Functional interfaces have a single abstract method and can be used with
+                    lambda expressions. They are annotated with <code>@FunctionalInterface</code>.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a functional interface</span>
+                <span class="hljs-meta">@FunctionalInterface</span>
+                <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyFunctionalInterface</span> {
+                    <span class="hljs-keyword">void</span> <span class="hljs-title function_">myMethod</span><span class="hljs-params">()</span>;
+                }
+                
+                <span class="hljs-comment">// Usage of lambda expression</span>
+                <span class="hljs-type">MyFunctionalInterface</span> <span class="hljs-variable">functionalInterface</span> <span class="hljs-operator">=</span> () -&gt; System.out.println(<span class="hljs-string">"Executing myMethod"</span>);
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>What are lambda expressions, and how do they simplify code in Java 8?</strong></p>
+            <ul>
+                <li>Lambda expressions are like concise methods for functional interfaces.
+                    They simplify code by reducing boilerplate code and making it more readable.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using lambda expression</span>
+                List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Charlie"</span>);
+                names.forEach(name -&gt; System.out.println(<span class="hljs-string">"Hello, "</span> + name));
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the benefits of the Stream API in Java 8.</strong></p>
+            <ul>
+                <li>The Stream API allows concise and functional-style operations on sequences
+                    of elements. It supports parallel processing, lazy evaluation, and provides a powerful toolkit
+                    for data manipulation.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using Stream API</span>
+                List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Charlie"</span>);
+                <span class="hljs-type">long</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> names.stream().filter(name -&gt; name.length() &gt; <span class="hljs-number">3</span>).count();
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the Optional class in Java 8 and its advantages.</strong></p>
+            <ul>
+                <li><code>Optional</code> is like a container that may or may not contain a
+                    value. It helps avoid null pointer exceptions and encourages more explicit handling of absent
+                    values.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using Optional</span>
+                Optional&lt;String&gt; name = Optional.ofNullable(getNameFromDatabase());
+                <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> name.orElse(<span class="hljs-string">"Default Name"</span>);
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>How does the default keyword in interfaces contribute to backward compatibility?</strong></p>
+            <ul>
+                <li>The <code>default</code> keyword in interfaces allows adding new methods
+                    without breaking existing implementations, promoting backward compatibility.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of default method in interface</span>
+                <span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyInterface</span> {
+                    <span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">myDefaultMethod</span><span class="hljs-params">()</span> {
+                        System.out.println(<span class="hljs-string">"Default implementation"</span>);
+                    }
+                }
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>Collections: Compare ArrayList and LinkedList in terms of performance and use cases.</strong>
+            </p>
+            <ul>
+                <li><code>ArrayList</code> is better for random access, while
+                    <code>LinkedList</code> is better for frequent insertions and deletions.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example demonstrating performance difference</span>
+                List&lt;Integer&gt; arrayList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();
+                List&lt;Integer&gt; linkedList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the differences between HashSet and TreeSet.</strong></p>
+            <ul>
+                <li><code>HashSet</code> is unordered and faster, while <code>TreeSet</code>
+                    is sorted and implements the <code>SortedSet</code> interface.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example demonstrating HashSet and TreeSet</span>
+                Set&lt;String&gt; hashSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;();
+                Set&lt;String&gt; treeSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeSet</span>&lt;&gt;();
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the use of the Comparator interface in sorting collections.</strong></p>
+            <ul>
+                <li>The <code>Comparator</code> interface allows custom sorting of objects. It
+                    is used to define a comparison logic outside of the object's class.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using Comparator for custom sorting</span>
+                List&lt;String&gt; names = Arrays.asList(<span class="hljs-string">"Alice"</span>, <span class="hljs-string">"Bob"</span>, <span class="hljs-string">"Charlie"</span>);
+                names.sort(Comparator.comparing(String::length));
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the purpose of the <code>java.util.function</code> package in Java?</strong></p>
+            <ul>
+                <li>The <code>java.util.function</code> package provides functional interfaces
+                    for common functional programming operations, such as predicates, functions, and consumers.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using functional interfaces from java.util.function</span>
+                Predicate&lt;String&gt; isLong = s -&gt; s.length() &gt; <span class="hljs-number">5</span>;
+                </code></pre>
+        </li>
+        <li>
+            <p><strong>How does <code>ConcurrentHashMap</code> achieve thread-safety in Java collections?</strong>
+            </p>
+            <ul>
+                <li><code>ConcurrentHashMap</code> achieves thread-safety by dividing the map
+                    into segments, allowing multiple threads to operate on different segments concurrently.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using ConcurrentHashMap</span>
+                Map&lt;String, Integer&gt; concurrentMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcurrentHashMap</span>&lt;&gt;();
+                </code></pre>
+        </li>
+        </ul>
+
+        <li>
+            <p><strong>Spring Boot: Explain the key features of Spring Boot.</strong></p>
+            <ul>
+                <li>Key features include auto-configuration, embedded servers, opinionated
+                    defaults, and the Spring Boot Starter ecosystem.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a simple Spring Boot application</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MySpringBootApplication</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+                    SpringApplication.run(MySpringBootApplication.class, args);
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the role of the <code>@SpringBootApplication</code> annotation?</strong></p>
+            <ul>
+                <li><code>@SpringBootApplication</code> is a meta-annotation that combines
+                    <code>@Configuration</code>, <code>@EnableAutoConfiguration</code>, and
+                    <code>@ComponentScan</code>. It is used to bootstrap a Spring Boot application.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a class annotated with @SpringBootApplication</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MySpringBootApplication</span> {
+                <span class="hljs-comment">// Application code</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the significance of Spring Boot starters.</strong></p>
+            <ul>
+                <li>Spring Boot starters are pre-configured dependencies that simplify the
+                    inclusion of specific sets of features. They provide a quick start for common use cases.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Example of including a Spring Boot starter in Maven --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How does Spring Boot support microservices architecture?</strong></p>
+            <ul>
+                <li>Spring Boot simplifies the development of microservices by providing
+                    features like embedded servers, dependency management, and configuration.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a simple microservice using Spring Boot</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyMicroservice</span> {
+                <span class="hljs-comment">// Microservice code</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the key features of Spring Boot.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Boot simplifies the development of production-ready applications
+                    with its features like auto-configuration, embedded servers, and a wide range of starters.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyApplication</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+                    SpringApplication.run(MyApplication.class, args);
+                }
+            }
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the role of the @SpringBootApplication annotation?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> The <code>@SpringBootApplication</code> annotation is a meta-annotation
+                    that combines <code>@Configuration</code>, <code>@EnableAutoConfiguration</code>, and
+                    <code>@ComponentScan</code>, providing a quick way to set up a Spring Boot application.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyApplication</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+                    SpringApplication.run(MyApplication.class, args);
+                }
+            }
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the significance of Spring Boot starters.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Boot starters are pre-configured dependencies that streamline the
+                    inclusion of specific sets of features, reducing the need for manual dependency management.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><div class="flex items-center relative text-gray-200 bg-gray-800 dark:bg-token-surface-primary px-4 py-2 text-xs font-sans justify-between rounded-t-md"><span>xml</span><span class="" data-state="closed"><button class="flex gap-1 items-center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-sm"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C10.8954 4 10 4.89543 10 6H14C14 4.89543 13.1046 4 12 4ZM8.53513 4C9.22675 2.8044 10.5194 2 12 2C13.4806 2 14.7733 2.8044 15.4649 4H17C18.6569 4 20 5.34315 20 7V19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19V7C4 5.34315 5.34315 4 7 4H8.53513ZM8 6H7C6.44772 6 6 6.44772 6 7V19C6 19.5523 6.44772 20 7 20H17C17.5523 20 18 19.5523 18 19V7C18 6.44772 17.5523 6 17 6H16C16 7.10457 15.1046 8 14 8H10C8.89543 8 8 7.10457 8 6Z" fill="currentColor"></path></svg>Copy code</button></span></div><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Dependency in pom.xml --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How does Spring Boot simplify microservices development?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Boot simplifies microservices development by providing features like
+                    auto-configuration, embedded servers, and the ability to use annotations like
+                    <code>@EnableDiscoveryClient</code> for service registration.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-meta">@EnableDiscoveryClient</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyMicroservice</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+                    SpringApplication.run(MyMicroservice.class, args);
+                }
+            }
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of the Spring Boot Actuator.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Boot Actuator provides production-ready features like health checks,
+                    metrics, and monitoring, aiding in managing and monitoring Spring Boot applications.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-yaml"><span class="hljs-comment"># application.properties or application.yaml</span>
+            <span class="hljs-string">management.endpoints.web.exposure.include=*</span>
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the 'application.properties' file used for in Spring Boot?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> The 'application.properties' file is used for configuring various
+                    properties, such as database settings or other application-specific configurations.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-properties"># Database configuration
+            spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+            spring.datasource.username=root
+            spring.datasource.password=root
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the concept of 'auto-configuration' in Spring Boot.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Auto-configuration in Spring Boot automatically configures beans based on
+                    the classpath, simplifying the setup by removing the need for extensive manual configurations.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Auto-configured DataSource</span>
+            <span class="hljs-meta">@Autowired</span>
+            DataSource dataSource;
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How does Spring Boot handle external configuration?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Boot can handle external configuration by using <code>@Value</code>
+                    annotations to inject values from external properties files or environment variables.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Injecting external properties</span>
+            <span class="hljs-meta">@Value("${spring.datasource.url}")</span>
+            <span class="hljs-keyword">private</span> String dbUrl;
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the role of 'Spring Initializr' in Spring Boot.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Initializr is a web-based tool that simplifies the process of
+                    creating and configuring a new Spring Boot project by providing a customizable project template.
+                </li>
+                <li><strong>Example:</strong> Visit <a target="_new">Spring Initializr</a>, select dependencies, and
+                    download a pre-configured project.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the 'CommandLineRunner' interface in Spring Boot.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> The <code>CommandLineRunner</code> interface in Spring Boot allows you to
+                    run specific code after the application context is initialized, useful for tasks like data
+                    initialization.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// CommandLineRunner example</span>
+            <span class="hljs-meta">@Component</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCommandLineRunner</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">CommandLineRunner</span> {
+                <span class="hljs-meta">@Override</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">run</span><span class="hljs-params">(String... args)</span> <span class="hljs-keyword">throws</span> Exception {
+                    <span class="hljs-comment">// Code to run at application startup</span>
+                }
+            }
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the 'RestTemplate' class used for?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> The <code>RestTemplate</code> class in Spring Boot is used for making HTTP
+                    requests to external services, simplifying the process of consuming RESTful APIs.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// RestTemplate usage for HTTP requests</span>
+            <span class="hljs-type">RestTemplate</span> <span class="hljs-variable">restTemplate</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RestTemplate</span>();
+            <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> restTemplate.getForObject(<span class="hljs-string">"https://api.example.com/data"</span>, String.class);
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How does Spring Boot support internationalization?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> Spring Boot supports internationalization by using properties files for
+                    different locales, allowing the application to display messages in multiple languages.</li>
+                <li><strong>Example:</strong> Properties files like <code>messages.properties</code>,
+                    <code>messages_fr.properties</code>, etc.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of 'Spring Boot Data JPA.'</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> 'Spring Boot Data JPA' simplifies database interactions in Spring Boot
+                    applications by providing a high-level, JPA-based abstraction for data access.</li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Spring Data JPA repository</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JpaRepository</span>&lt;User, Long&gt; {
+                <span class="hljs-comment">// Custom queries or methods</span>
+            }
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Discuss the 'Spring Boot DevTools' module.</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> 'Spring Boot DevTools' provides features like automatic restarts and
+                    enhanced development tools to streamline the development process.</li>
+                <li><strong>Example:</strong> Add <code>spring-boot-devtools</code> to your dependencies.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the significance of 'profiles' in Spring Boot?</strong></p>
+            <ul>
+                <li><strong>Answer:</strong> 'Profiles' in Spring Boot allow you to define and activate different sets
+                    of configurations based on the environment, enabling easier management of application properties.
+                </li>
+                <li><strong>Example Code:</strong>
+                    <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Profile-specific configuration</span>
+            <span class="hljs-meta">@Configuration</span>
+            <span class="hljs-meta">@Profile("dev")</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DevConfig</span> {
+                <span class="hljs-comment">// Configuration for the 'dev' profile</span>
+            }
+            </code></pre>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of the Spring Boot Actuator.</strong></p>
+            <ul>
+                <li>Spring Boot Actuator provides production-ready features like health
+                    checks, metrics, and monitoring to manage and monitor Spring Boot applications.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Example of including Spring Boot Actuator in Maven --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>SQL: What is the difference between INNER JOIN and LEFT JOIN in SQL?</strong></p>
+            <ul>
+                <li>INNER JOIN returns only matching rows from both tables, while LEFT JOIN
+                    returns all rows from the left table and matching rows from the</li>
+            </ul>
+        </li>
+        </ul>
+
+        <li>
+            <p><strong>Spring Boot: Explain the key features of Spring Boot.</strong></p>
+            <ul>
+                <li> Key features include auto-configuration, embedded servers, opinionated
+                    defaults, and the Spring Boot Starter ecosystem.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a simple Spring Boot application</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MySpringBootApplication</span> {
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+                    SpringApplication.run(MySpringBootApplication.class, args);
+                }
+            }
+            </code></pre>
+        </li>
+
+        <li>
+            <p><strong>What is the role of the <code>@SpringBootApplication</code> annotation?</strong></p>
+            <ul>
+                <li> <code>@SpringBootApplication</code> is a meta-annotation that combines
+                    <code>@Configuration</code>, <code>@EnableAutoConfiguration</code>, and
+                    <code>@ComponentScan</code>. It is used to bootstrap a Spring Boot application.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a class annotated with @SpringBootApplication</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MySpringBootApplication</span> {
+                <span class="hljs-comment">// Application code</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the significance of Spring Boot starters.</strong></p>
+            <ul>
+                <li> Spring Boot starters are pre-configured dependencies that simplify the
+                    inclusion of specific sets of features. They provide a quick start for common use cases.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Example of including a Spring Boot starter in Maven --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How does Spring Boot support microservices architecture?</strong></p>
+            <ul>
+                <li> Spring Boot simplifies the development of microservices by providing
+                    features like embedded servers, dependency management, and configuration.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a simple microservice using Spring Boot</span>
+            <span class="hljs-meta">@SpringBootApplication</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyMicroservice</span> {
+                <span class="hljs-comment">// Microservice code</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of the Spring Boot Actuator.</strong></p>
+            <ul>
+                <li> Spring Boot Actuator provides production-ready features like health
+                    checks, metrics, and monitoring to manage and monitor Spring Boot applications.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Example of including Spring Boot Actuator in Maven --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>SQL: What is the difference between INNER JOIN and LEFT JOIN in SQL?</strong></p>
+            <ul>
+                <li> INNER JOIN returns only matching rows from both tables, while LEFT JOIN
+                    returns all rows from the left table and matching rows from the right table.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-sql"><span class="hljs-comment">-- Example of INNER JOIN</span>
+            <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> table1 <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> table2 <span class="hljs-keyword">ON</span> table1.id <span class="hljs-operator">=</span> table2.id;
+            
+            <span class="hljs-comment">-- Example of LEFT JOIN</span>
+            <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> table1 <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> table2 <span class="hljs-keyword">ON</span> table1.id <span class="hljs-operator">=</span> table2.id;
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the ACID properties in the context of database transactions.</strong></p>
+            <ul>
+                <li> ACID stands for Atomicity, Consistency, Isolation, and Durability. These
+                    properties ensure the reliability and integrity of database transactions.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-sql"><span class="hljs-comment">-- Example of a transaction with ACID properties</span>
+            <span class="hljs-keyword">BEGIN</span> TRANSACTION;
+            <span class="hljs-comment">-- SQL statements</span>
+            <span class="hljs-keyword">COMMIT</span>;
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the purpose of the GROUP BY clause in SQL.</strong></p>
+            <ul>
+                <li> The GROUP BY clause is used to group rows based on one or more columns. It
+                    is often used with aggregate functions to perform calculations on each group.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-sql"><span class="hljs-comment">-- Example using GROUP BY</span>
+            <span class="hljs-keyword">SELECT</span> department, <span class="hljs-built_in">AVG</span>(salary) <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> department;
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the difference between UNION and UNION ALL in SQL?</strong></p>
+            <ul>
+                <li> UNION combines and removes duplicate rows, while UNION ALL combines all
+                    rows, including duplicates.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-sql"><span class="hljs-comment">-- Example using UNION</span>
+            <span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table1 <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table2;
+            
+            <span class="hljs-comment">-- Example using UNION ALL</span>
+            <span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table1 <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">SELECT</span> column1 <span class="hljs-keyword">FROM</span> table2;
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How can you optimize SQL queries for better performance?</strong></p>
+            <ul>
+                <li> Optimization techniques include using indexes, avoiding unnecessary joins,
+                    optimizing WHERE clauses, and ensuring proper indexing.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-sql"><span class="hljs-comment">-- Example of optimizing a query</span>
+            <span class="hljs-keyword">CREATE</span> INDEX idx_lastname <span class="hljs-keyword">ON</span> employees(lastname);
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>JPA (Java Persistence API): Explain the role of JPA in the context of Java
+                    applications.</strong></p>
+            <ul>
+                <li> JPA is a Java specification for accessing, managing, and persisting data
+                    between Java objects and a relational database. It simplifies database interactions in Java
+                    applications.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a JPA entity class</span>
+            <span class="hljs-meta">@Entity</span>
+            <span class="hljs-meta">@Table(name = "employees")</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span> {
+                <span class="hljs-comment">// Entity code</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Discuss the differences between EntityManager and Session in JPA and Hibernate.</strong></p>
+            <ul>
+                <li> EntityManager is part of JPA and used for managing entities, while Session
+                    is part of Hibernate and provides similar functionality.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using EntityManager in JPA</span>
+            <span class="hljs-type">EntityManager</span> <span class="hljs-variable">entityManager</span> <span class="hljs-operator">=</span> entityManagerFactory.createEntityManager();
+            
+            <span class="hljs-comment">// Example using Session in Hibernate</span>
+            <span class="hljs-type">Session</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> sessionFactory.openSession();
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the purpose of the @GeneratedValue annotation in JPA?</strong></p>
+            <ul>
+                <li> <code>@GeneratedValue</code> is used to automatically generate unique
+                    primary key values for entities.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using @GeneratedValue in JPA</span>
+            <span class="hljs-meta">@Id</span>
+            <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span>
+            <span class="hljs-keyword">private</span> Long id;
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Explain the FetchType options in JPA and their impact on performance.</strong></p>
+            <ul>
+                <li> FetchType defines how associations are loaded. LAZY loads the association
+                    when accessed, while EAGER loads it immediately. Proper usage depends on performance
+                    considerations.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using FetchType in JPA</span>
+            <span class="hljs-meta">@ManyToOne(fetch = FetchType.LAZY)</span>
+            <span class="hljs-keyword">private</span> Department department;
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How does JPA handle relationships between entities?</strong></p>
+            <ul>
+                <li> JPA supports relationships through annotations like
+                    <code>@OneToOne</code>, <code>@OneToMany</code>, and <code>@ManyToOne</code>. It manages
+                    relationships using foreign key associations in the database.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a bidirectional @OneToMany relationship</span>
+            <span class="hljs-meta">@Entity</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Department</span> {
+                <span class="hljs-meta">@OneToMany(mappedBy = "department")</span>
+                <span class="hljs-keyword">private</span> List&lt;Employee&gt; employees;
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>General: What is composition and aggregation in Java?</strong></p>
+            <ul>
+                <li> Composition and aggregation are object-oriented programming concepts in
+                    Java. Composition represents a "has-a" relationship, where one class contains another as a part.
+                    Aggregation is a weaker form of composition, indicating a "has-a" relationship without strong
+                    ownership.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of composition</span>
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Engine</span> {}
+            
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Car</span> {
+                <span class="hljs-keyword">private</span> <span class="hljs-type">Engine</span> <span class="hljs-variable">engine</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Engine</span>();
+            }
+            
+            <span class="hljs-comment">// Example of aggregation</span>
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Department</span> {}
+            
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">Company</span> {
+                <span class="hljs-keyword">private</span> List&lt;Department&gt; departments;
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How to create a custom immutable class in Java?</strong></p>
+            <ul>
+                <li> To create a custom immutable class in Java, mark the class as
+                    <code>final</code>, make fields <code>private</code>, provide a no-argument constructor,
+                    initialize fields using constructor parameters, and avoid providing any setter methods.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a custom immutable class</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ImmutablePerson</span> {
+                <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String name;
+                <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> age;
+            
+                <span class="hljs-keyword">public</span> <span class="hljs-title function_">ImmutablePerson</span><span class="hljs-params">(String name, <span class="hljs-type">int</span> age)</span> {
+                    <span class="hljs-built_in">this</span>.name = name;
+                    <span class="hljs-built_in">this</span>.age = age;
+                }
+            
+                <span class="hljs-comment">// No setter methods</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>Why do you use App Engine?</strong></p>
+            <ul>
+                <li> Google App Engine is a Platform as a Service (PaaS) offering that allows
+                    developers to build and deploy scalable web applications easily. It abstracts infrastructure
+                    management, offering auto-scaling, security, and simplified deployment.</li>
+            </ul>
+            <pre class='language-java'> <code class="!whitespace-pre hljs language-yaml"><span class="hljs-comment"># Example of specifying App Engine configuration in app.yaml</span>
+            <span class="hljs-attr">runtime:</span> <span class="hljs-string">java</span>
+            <span class="hljs-attr">env:</span> <span class="hljs-string">flex</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>React lifecycle?</strong></p>
+            <ul>
+                <li> React components go through three main lifecycle phases: Mounting,
+                    Updating, and Unmounting. Methods like <code>componentDidMount</code> and
+                    <code>componentWillUnmount</code> are part of these phases.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-jsx"><span class="hljs-comment">// Example of a React component with lifecycle methods</span>
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+                <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Component is mounted'</span>);
+                }
+            
+                <span class="hljs-title function_">componentWillUnmount</span>(<span class="hljs-params"></span>) {
+                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Component will unmount'</span>);
+                }
+            
+                <span class="hljs-comment">// Other component code</span>
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is a View Resolver in Spring?</strong></p>
+            <ul>
+                <li> In Spring, a View Resolver is responsible for mapping logical view names
+                    to actual views. It helps in determining which view (JSP, HTML, etc.) should be rendered for a
+                    specific request.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Example of configuring a View Resolver in Spring XML configuration --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"viewResolver"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"prefix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/WEB-INF/views/"</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".jsp"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span>
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>What is the Callable interface?</strong></p>
+            <ul>
+                <li> The <code>Callable</code> interface in Java is similar to
+                    <code>Runnable</code>, but it can return a result. It is used with the Executor framework to
+                    perform tasks asynchronously and obtain results in a concurrent program.
+                </li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using Callable interface in Java</span>
+            <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCallable</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Callable</span>&lt;String&gt; {
+                <span class="hljs-keyword">public</span> String <span class="hljs-title function_">call</span><span class="hljs-params">()</span> {
+                    <span class="hljs-keyword">return</span> <span class="hljs-string">"Callable result"</span>;
+                }
+            }
+            </code></pre>
+        </li>
+        <li>
+            <p><strong>How to give a composite primary key in JPA?</strong></p>
+            <ul>
+                <li> In JPA, use the <code>@Embeddable</code> annotation to create an
+                    embeddable class representing the composite key, and then use <code>@EmbeddedId</code> in the
+                    entity class to reference the composite key.</li>
+            </ul>
+            <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using a composite primary key in JPA</span>
+            <span class="hljs-meta">@Embeddable</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyCompositeKey</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Serializable</span> {
+                <span class="hljs-keyword">private</span> String keyPart1;
+                <span class="hljs-keyword">private</span> String keyPart2;
+                <span class="hljs-comment">// Getters, setters, equals, and hashCode methods</span>
+            }
+            
+            <span class="hljs-meta">@Entity</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyEntity</span> {
+                <span class="hljs-meta">@EmbeddedId</span>
+                <span class="hljs-keyword">private</span> MyCompositeKey compositeKey;
+                <span class="hljs-comment">// Other entity code</span>
+            }
+            </code></pre>
+        </li>
+
+        </ul>
+
+        <ul start="51">
+            <li><strong>What is ConcurrentHashMap?</strong></li>
+        </ul>
+        <ul>
+            <li> <code>ConcurrentHashMap</code> is a thread-safe version of
+                <code>HashMap</code> in Java, designed for concurrent use. It allows multiple threads to read and
+                write to the map concurrently without the need for external synchronization.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using ConcurrentHashMap in Java</span>
+            Map&lt;String, Integer&gt; concurrentMap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcurrentHashMap</span>&lt;&gt;();
+            concurrentMap.put(<span class="hljs-string">"key1"</span>, <span class="hljs-number">1</span>);
+            concurrentMap.put(<span class="hljs-string">"key2"</span>, <span class="hljs-number">2</span>);
+            </code></pre>
+        <ul start="52">
+            <li><strong>What is serialization in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> Serialization in Java is the process of converting an object into a byte
+                stream for storage or transmission. It allows objects to be saved or sent across a network and
+                reconstructed later.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of serialization in Java</span>
+            <span class="hljs-type">ObjectOutputStream</span> <span class="hljs-variable">oos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectOutputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileOutputStream</span>(<span class="hljs-string">"object.ser"</span>));
+            oos.writeObject(<span class="hljs-keyword">new</span> <span class="hljs-title class_">MySerializableObject</span>());
+            oos.close();
+            </code></pre>
+        <ul start="53">
+            <li><strong>What are Futures in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> Futures in Java, specifically <code>java.util.concurrent.Future</code>,
+                represent the result of an asynchronous computation. They provide a way to check if the computation
+                is complete and retrieve the result when it's ready.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using Future in Java</span>
+            <span class="hljs-type">ExecutorService</span> <span class="hljs-variable">executor</span> <span class="hljs-operator">=</span> Executors.newSingleThreadExecutor();
+            Future&lt;String&gt; futureResult = executor.submit(() -&gt; <span class="hljs-string">"Async result"</span>);
+            <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> futureResult.get();
+            </code></pre>
+        <ul start="54">
+            <li><strong>What is Predicates in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> Predicates in Java are functional interfaces representing boolean-valued
+                functions. They are commonly used in filtering and conditions within the Stream API.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example using Predicate in Java</span>
+            List&lt;Integer&gt; numbers = Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>);
+            Predicate&lt;Integer&gt; isEven = n -&gt; n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>;
+            List&lt;Integer&gt; evenNumbers = numbers.stream().filter(isEven).collect(Collectors.toList());
+            </code></pre>
+        <ul start="55">
+            <li><strong>What is inline CSS?</strong></li>
+        </ul>
+        <ul>
+            <li> Inline CSS refers to styling HTML elements directly within the HTML document
+                using the "style" attribute. It provides a way to apply styles specific to individual elements.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-html"><span class="hljs-comment">&lt;!-- Example of inline CSS in HTML --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"color: blue; font-size: 16px;"</span>&gt;</span>This is a styled paragraph.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            </code></pre>
+        <ul start="56">
+            <li><strong>What is the dot symbol in CSS?</strong></li>
+        </ul>
+        <ul>
+            <li> In CSS, the dot symbol (.) is used to select elements based on their class
+                attribute. For example, <code>.example</code> selects all elements with the class "example."</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-css"><span class="hljs-comment">/* Example of using dot symbol in CSS */</span>
+            <span class="hljs-selector-class">.highlight</span> {
+                <span class="hljs-attribute">background-color</span>: yellow;
+            }
+            </code></pre>
+        <ul start="57">
+            <li><strong>What types of storage are there in JavaScript?</strong></li>
+        </ul>
+        <ul>
+            <li> JavaScript has two types of storage: Local Storage (persistent storage with no
+                expiration time) and Session Storage (storage that lasts for the duration of the page session).</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example of using Local Storage in JavaScript</span>
+            <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">'user'</span>, <span class="hljs-string">'John Doe'</span>);
+            </code></pre>
+        <ul start="58">
+            <li><strong>How are exceptions caught in Spring without try-catch?</strong></li>
+        </ul>
+        <ul>
+            <li> In Spring, exceptions can be handled using <code>@ExceptionHandler</code>
+                annotated methods within a controller. These methods handle exceptions globally for the associated
+                controller.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of handling exceptions in Spring without try-catch</span>
+            <span class="hljs-meta">@ControllerAdvice</span>
+            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GlobalExceptionHandler</span> {
+                <span class="hljs-meta">@ExceptionHandler(Exception.class)</span>
+                <span class="hljs-keyword">public</span> ResponseEntity&lt;String&gt; <span class="hljs-title function_">handleException</span><span class="hljs-params">(Exception e)</span> {
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ResponseEntity</span>&lt;&gt;(<span class="hljs-string">"An error occurred: "</span> + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+            }
+            </code></pre>
+        <ul start="59">
+            <li><strong>What is try-with-resources in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> <code>try-with-resources</code> is a Java feature introduced in Java 7. It
+                automatically closes resources (like files or sockets) at the end of the try block, reducing the
+                need for explicit resource management.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using try-with-resources in Java</span>
+            <span class="hljs-keyword">try</span> (<span class="hljs-type">BufferedReader</span> <span class="hljs-variable">reader</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FileReader</span>(<span class="hljs-string">"file.txt"</span>))) {
+                <span class="hljs-comment">// Read from the file</span>
+            } <span class="hljs-keyword">catch</span> (IOException e) {
+                <span class="hljs-comment">// Handle the exception</span>
+            }
+            </code></pre>
+        <ul start="60">
+            <li><strong>How to implement fault tolerance in microservices?</strong></li>
+        </ul>
+        <ul>
+            <li> Implementing fault tolerance in microservices can be achieved using techniques
+                like circuit breakers, retry mechanisms, and fallback mechanisms. Hystrix, a library by Netflix,
+                implements the Circuit Breaker pattern for fault tolerance.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using Hystrix for fault tolerance</span>
+            <span class="hljs-meta">@HystrixCommand(fallbackMethod = "fallbackMethod")</span>
+            <span class="hljs-keyword">public</span> String <span class="hljs-title function_">riskyOperation</span><span class="hljs-params">()</span> {
+                <span class="hljs-comment">// Risky operation</span>
+            }
+            
+            <span class="hljs-keyword">public</span> String <span class="hljs-title function_">fallbackMethod</span><span class="hljs-params">()</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-string">"Fallback result"</span>;
+            }
+            </code></pre>
+        <ul start="61">
+            <li><strong>If there are 100 records in MySQL, how to fetch only 10?</strong></li>
+        </ul>
+        <ul>
+            <li> To fetch only 10 records from MySQL, you can use the LIMIT clause in your SQL
+                query.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-sql"><span class="hljs-comment">-- Example of fetching only 10 records</span>
+            <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> your_table LIMIT <span class="hljs-number">10</span>;
+            </code></pre>
+        <ul start="62">
+            <li><strong>What is Spring Actuator?</strong></li>
+        </ul>
+        <ul>
+            <li> Spring Actuator is a set of production-ready features, including health
+                checks, metrics, and monitoring, that can be easily added to a Spring Boot application.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-xml"><span class="hljs-comment">&lt;!-- Example of including Spring Actuator in Maven --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+            </code></pre>
+        <ul start="63">
+            <li><strong>What are the disadvantages of microservices?</strong></li>
+        </ul>
+        <ul>
+            <li> Disadvantages of microservices include increased complexity, potential
+                communication overhead, challenges in data consistency, and the need for sophisticated monitoring
+                and management tools. Careful consideration of the application's requirements is essential for
+                successful implementation.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-text">// Example of a disadvantage: Increased complexity
+            // Microservices architecture requires more effort in managing distributed systems.
+            </code></pre>
+        <ul start="64">
+            <li><strong>What is <code>spring.jpa.hibernate.ddl-auto</code> used for in Spring Boot?</strong></li>
+        </ul>
+        <ul>
+            <li> <code>spring.jpa.hibernate.ddl-auto</code> in Spring Boot is a configuration
+                property used to automatically generate and update the database schema based on the entity classes.
+                It can have values like <code>update</code>, <code>create</code>, <code>create-drop</code>, etc.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-properties"># Example of configuring ddl-auto in application.properties
+                spring.jpa.hibernate.ddl-auto=update
+                </code></pre>
+        <ul start="65">
+            <li><strong>How to create a custom exception in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> To create a custom exception in Java, extend the <code>Exception</code> class
+                or one of its subclasses. Optionally, add a constructor to set a custom error message.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of a custom exception in Java</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">RuntimeException</span> {
+                    <span class="hljs-keyword">public</span> <span class="hljs-title function_">CustomException</span><span class="hljs-params">(String message)</span> {
+                        <span class="hljs-built_in">super</span>(message);
+                    }
+                }
+                </code></pre>
+        <ul start="66">
+            <li><strong>How does garbage collection work in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> Garbage collection in Java involves automatically reclaiming memory occupied
+                by objects that are no longer reachable. The JVM identifies unreferenced objects and frees their
+                memory.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of garbage collection in Java</span>
+                <span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();
+                obj = <span class="hljs-literal">null</span>; <span class="hljs-comment">// The object becomes eligible for garbage collection</span>
+                </code></pre>
+        <ul start="67">
+            <li><strong>What is the purpose of <code>@Autowired</code> in Spring?</strong></li>
+        </ul>
+        <ul>
+            <li> <code>@Autowired</code> in Spring is used to automatically inject dependencies
+                by matching the type of the bean. It is commonly used for constructor injection, setter injection,
+                or field injection.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using @Autowired in Spring</span>
+                <span class="hljs-meta">@Service</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> {
+                    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> MyRepository repository;
+                
+                    <span class="hljs-meta">@Autowired</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyService</span><span class="hljs-params">(MyRepository repository)</span> {
+                        <span class="hljs-built_in">this</span>.repository = repository;
+                    }
+                }
+                </code></pre>
+        <ul start="68">
+            <li><strong>How to handle CORS issues in a Spring Boot application?</strong></li>
+        </ul>
+        <ul>
+            <li> To handle CORS issues in a Spring Boot application, configure CORS-related
+                settings using <code>@CrossOrigin</code> annotation or by defining a <code>CorsFilter</code> bean.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of handling CORS in Spring Boot</span>
+                <span class="hljs-meta">@RestController</span>
+                <span class="hljs-meta">@CrossOrigin(origins = "http://localhost:4200")</span>
+                <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> {
+                    <span class="hljs-comment">// Controller logic</span>
+                }
+                </code></pre>
+        <ul start="69">
+            <li><strong>What is the purpose of the <code>this</code> keyword in JavaScript?</strong></li>
+        </ul>
+        <ul>
+            <li> In JavaScript, the <code>this</code> keyword refers to the object on which a
+                function is invoked. Its value is determined by how a function is called and is used to access the
+                object's properties and methods.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example of using 'this' in JavaScript</span>
+                <span class="hljs-keyword">const</span> person = {
+                    <span class="hljs-attr">name</span>: <span class="hljs-string">'John'</span>,
+                    <span class="hljs-attr">greet</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+                        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">`Hello, <span class="hljs-subst">${<span class="hljs-variable language_">this</span>.name}</span>!`</span>);
+                    }
+                };
+                person.<span class="hljs-title function_">greet</span>(); <span class="hljs-comment">// Outputs: Hello, John!</span>
+                </code></pre>
+        <ul start="70">
+            <li><strong>How to use the <code>fetch</code> API for asynchronous HTTP requests in JavaScript?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li> The <code>fetch</code> API is used for making asynchronous HTTP requests in
+                JavaScript. It returns a <code>Promise</code> and can be used with <code>.then()</code> to handle
+                the response.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example of using 'fetch' API in JavaScript</span>
+                <span class="hljs-title function_">fetch</span>(<span class="hljs-string">'https://api.example.com/data'</span>)
+                    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.<span class="hljs-title function_">json</span>())
+                    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data))
+                    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">'Error:'</span>, error));
+                </code></pre>
+        <ul start="71">
+            <li><strong>What is the purpose of the <code>break</code> statement in a JavaScript <code>switch</code>
+                    statement?</strong></li>
+        </ul>
+        <ul>
+            <li> The <code>break</code> statement in a JavaScript <code>switch</code> statement
+                is used to terminate the execution of the switch block. It prevents fall-through behavior, where
+                execution continues to the next case.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example of using 'break' in a JavaScript 'switch' statement</span>
+                <span class="hljs-keyword">const</span> day = <span class="hljs-number">3</span>;
+                <span class="hljs-keyword">switch</span> (day) {
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+                        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Monday'</span>);
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+                        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Tuesday'</span>);
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-comment">// ...</span>
+                    <span class="hljs-attr">default</span>:
+                        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Unknown day'</span>);
+                }
+                </code></pre>
+        <ul start="72">
+            <li><strong>How to use the <code>localStorage</code> in JavaScript for storing data?</strong></li>
+        </ul>
+        <ul>
+            <li> The <code>localStorage</code> in JavaScript is used for storing key-value
+                pairs persistently. It is a form of web storage that remains even after the browser is closed.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example of using 'localStorage' in JavaScript</span>
+                <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">'user'</span>, <span class="hljs-string">'John Doe'</span>);
+                <span class="hljs-keyword">const</span> storedUser = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">'user'</span>);
+                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(storedUser); <span class="hljs-comment">// Outputs: John Doe</span>
+                </code></pre>
+        <ul start="73">
+            <li><strong>What is the purpose of the <code>@Query</code> annotation in Spring Data JPA?</strong></li>
+        </ul>
+        <ul>
+            <li> The <code>@Query</code> annotation in Spring Data JPA is used to define custom
+                queries using JPQL (Java Persistence Query Language) or native SQL. It allows developers to write
+                custom queries for data retrieval.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@Query' in Spring Data JPA</span>
+                <span class="hljs-meta">@Query("SELECT u FROM User u WHERE u.username = :username")</span>
+                User <span class="hljs-title function_">findByUsername</span><span class="hljs-params">(<span class="hljs-meta">@Param("username")</span> String username)</span>;
+                </code></pre>
+        <ul start="74">
+            <li><strong>How to use the <code>localStorage</code> in JavaScript for storing data?</strong></li>
+        </ul>
+        <ul>
+            <li> The <code>localStorage</code> in JavaScript is used for storing key-value
+                pairs persistently. It is a form of web storage that remains even after the browser is closed.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Example of using 'localStorage' in JavaScript</span>
+                <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">'user'</span>, <span class="hljs-string">'John Doe'</span>);
+                <span class="hljs-keyword">const</span> storedUser = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">'user'</span>);
+                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(storedUser); <span class="hljs-comment">// Outputs: John Doe</span>
+                </code></pre>
+        <ul start="76">
+            <li><strong>What is the purpose of the <code>@Transactional</code> annotation in Spring?</strong></li>
+        </ul>
+        <ul>
+            <li> The <code>@Transactional</code> annotation in Spring is used to define the
+                scope of a database transaction. It ensures that a method is wrapped in a transaction, and it
+                manages transactions, including commit and rollback.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@Transactional' in Spring</span>
+                    <span class="hljs-meta">@Service</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> {
+                        <span class="hljs-meta">@Transactional</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">performTransactionalOperation</span><span class="hljs-params">()</span> {
+                            <span class="hljs-comment">// Database operations</span>
+                        }
+                    }
+                    </code></pre>
+        <ul start="77">
+            <li><strong>How to create a RESTful web service in Spring Boot?</strong></li>
+        </ul>
+        <ul>
+            <li> To create a RESTful web service in Spring Boot, annotate a class with
+                <code>@RestController</code> and define methods with <code>@RequestMapping</code> or other
+                specialized annotations.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of creating a RESTful service in Spring Boot</span>
+                    <span class="hljs-meta">@RestController</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> {
+                        <span class="hljs-meta">@GetMapping("/hello")</span>
+                        <span class="hljs-keyword">public</span> String <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> {
+                            <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello, World!"</span>;
+                        }
+                    }
+                    </code></pre>
+        <ul start="78">
+            <li><strong>What is the purpose of the <code>@PathVariable</code> annotation in Spring MVC?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li> The <code>@PathVariable</code> annotation in Spring MVC is used to extract
+                values from the URI template and pass them as method parameters. It allows mapping variables
+                directly from the URL.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@PathVariable' in Spring MVC</span>
+                    <span class="hljs-meta">@GetMapping("/users/{userId}")</span>
+                    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Long userId)</span> {
+                        <span class="hljs-comment">// Logic to retrieve user by ID</span>
+                    }
+                    </code></pre>
+        <ul start="79">
+            <li><strong>How to implement security in a Spring Boot application?</strong></li>
+        </ul>
+        <ul>
+            <li> Security in a Spring Boot application can be implemented using Spring
+                Security. Add dependencies, configure security settings, and use annotations like
+                <code>@Secured</code> or <code>@PreAuthorize</code>.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of securing a method in Spring Boot</span>
+                    <span class="hljs-meta">@Service</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> {
+                        <span class="hljs-meta">@Secured("ROLE_USER")</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">performUserOperation</span><span class="hljs-params">()</span> {
+                            <span class="hljs-comment">// Operation accessible to users with the role ROLE_USER</span>
+                        }
+                    }
+                    </code></pre>
+        <ul start="80">
+            <li><strong>What is the purpose of the <code>super</code> keyword in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> In Java, the <code>super</code> keyword is used to refer to the superclass
+                (parent class) members (fields or methods). It is often used to differentiate between superclass and
+                subclass members with the same name.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using 'super' in Java</span>
+                    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> {
+                        <span class="hljs-type">String</span> <span class="hljs-variable">sound</span> <span class="hljs-operator">=</span> <span class="hljs-string">"Generic Animal Sound"</span>;
+                    }
+                    
+                    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> {
+                        <span class="hljs-type">String</span> <span class="hljs-variable">sound</span> <span class="hljs-operator">=</span> <span class="hljs-string">"Meow"</span>;
+                    
+                        <span class="hljs-keyword">void</span> <span class="hljs-title function_">printSounds</span><span class="hljs-params">()</span> {
+                            System.out.println(sound);        <span class="hljs-comment">// Meow</span>
+                            System.out.println(<span class="hljs-built_in">super</span>.sound); <span class="hljs-comment">// Generic Animal Sound</span>
+                        }
+                    }
+                    </code></pre>
+        <ul start="81">
+            <li><strong>How to implement pagination in Spring Data JPA?</strong></li>
+        </ul>
+        <ul>
+            <li> Pagination in Spring Data JPA can be implemented by extending
+                <code>PagingAndSortingRepository</code> and using methods like
+                <code>findAll(Pageable pageable)</code>.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of implementing pagination in Spring Data JPA</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">PagingAndSortingRepository</span>&lt;User, Long&gt; {
+                        Page&lt;User&gt; <span class="hljs-title function_">findAll</span><span class="hljs-params">(Pageable pageable)</span>;
+                    }
+                    </code></pre>
+        <ul start="82">
+            <li><strong>What is the purpose of the <code>@ModelAttribute</code> annotation in Spring MVC?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li> The <code>@ModelAttribute</code> annotation in Spring MVC is used to bind
+                method parameters to the model. It adds attributes to the model before a handler method is invoked.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@ModelAttribute' in Spring MVC</span>
+                    <span class="hljs-meta">@Controller</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> {
+                        <span class="hljs-meta">@ModelAttribute("message")</span>
+                        <span class="hljs-keyword">public</span> String <span class="hljs-title function_">addMessage</span><span class="hljs-params">()</span> {
+                            <span class="hljs-keyword">return</span> <span class="hljs-string">"Welcome to my app!"</span>;
+                        }
+                    }
+                    </code></pre>
+        <ul start="83">
+            <li><strong>How to handle exceptions globally in a Spring Boot application?</strong></li>
+        </ul>
+        <ul>
+            <li> Exceptions can be handled globally in a Spring Boot application using
+                <code>@ControllerAdvice</code> along with <code>@ExceptionHandler</code> methods.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of handling exceptions globally in Spring Boot</span>
+                    <span class="hljs-meta">@ControllerAdvice</span>
+                    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GlobalExceptionHandler</span> {
+                        <span class="hljs-meta">@ExceptionHandler(Exception.class)</span>
+                        <span class="hljs-keyword">public</span> String <span class="hljs-title function_">handleException</span><span class="hljs-params">(Exception ex, Model model)</span> {
+                            model.addAttribute(<span class="hljs-string">"error"</span>, ex.getMessage());
+                            <span class="hljs-keyword">return</span> <span class="hljs-string">"error"</span>;
+                        }
+                    }
+                    </code></pre>
+        <ul start="84">
+            <li><strong>What is the purpose of the <code>volatile</code> keyword in Java?</strong></li>
+        </ul>
+        <ul>
+            <li> In Java, the <code>volatile</code> keyword is used to indicate that a
+                variable's value may be changed by multiple threads simultaneously. It ensures that changes made by
+                one thread are visible to other threads.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using 'volatile' in Java</span>
+                    <span class="hljs-keyword">class</span> <span class="hljs-title class_">SharedResource</span> {
+                        <span class="hljs-keyword">volatile</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">flag</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;
+                    }
+                    </code></pre>
+        <ul start="85">
+            <li><strong>How to create and run a Docker container for a Spring Boot application?</strong></li>
+        </ul>
+        <ul>
+            <li> Create a Dockerfile, build a Docker image using <code>docker build</code>, and
+                run a Docker container using <code>docker run</code>.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-Dockerfile"># Example Dockerfile for a Spring Boot app
+                    FROM openjdk:11
+                    COPY target/myapp.jar myapp.jar
+                    CMD ["java", "-jar", "myapp.jar"]
+                    </code></pre>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-bash"><span class="hljs-comment"># Example commands for building and running the Docker container</span>
+                    docker build -t myapp .
+                    docker run -p 8080:8080 myapp
+                    </code></pre>
+        <ul start="86">
+            <li><strong>How to perform asynchronous operations in Spring Boot using <code>@Async</code>?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> To perform asynchronous operations in Spring Boot, annotate a method with
+                <code>@Async</code> and ensure that the <code>@EnableAsync</code> annotation is added to the
+                configuration.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of performing asynchronous operation in Spring Boot</span>
+                        <span class="hljs-meta">@Service</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> {
+                            <span class="hljs-meta">@Async</span>
+                            <span class="hljs-keyword">public</span> CompletableFuture&lt;String&gt; <span class="hljs-title function_">performAsyncOperation</span><span class="hljs-params">()</span> {
+                                <span class="hljs-comment">// Asynchronous logic</span>
+                                <span class="hljs-keyword">return</span> CompletableFuture.completedFuture(<span class="hljs-string">"Operation completed"</span>);
+                            }
+                        }
+                        </code></pre>
+        <ul start="87">
+            <li><strong>What is the purpose of the <code>application.properties</code> file in a Spring Boot
+                    application?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> The <code>application.properties</code> file in a Spring Boot application is
+                used for configuring settings such as database connection details, server port, and other
+                application-specific properties.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-properties"># Example application.properties file
+                        spring.datasource.url=jdbc:mysql://localhost:3306/mydb
+                        server.port=8080
+                        </code></pre>
+        <ul start="88">
+            <li><strong>How to use Swagger for API documentation in a Spring Boot application?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Add the Swagger dependencies, configure a <code>Docket</code> bean, and use
+                annotations like <code>@Api</code> and <code>@ApiOperation</code> in the controllers.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example Swagger configuration in a Spring Boot application</span>
+                        <span class="hljs-meta">@Configuration</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SwaggerConfig</span> {
+                            <span class="hljs-meta">@Bean</span>
+                            <span class="hljs-keyword">public</span> Docket <span class="hljs-title function_">api</span><span class="hljs-params">()</span> {
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Docket</span>(DocumentationType.SWAGGER_2)
+                                    .select()
+                                    .apis(RequestHandlerSelectors.basePackage(<span class="hljs-string">"com.example.controller"</span>))
+                                    .build();
+                            }
+                        }
+                        </code></pre>
+        <ul start="89">
+            <li><strong>How to handle CORS (Cross-Origin Resource Sharing) in a Spring Boot application?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Configure CORS in a Spring Boot application using <code>CorsRegistry</code>
+                within <code>WebMvcConfigurer</code>.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example CORS configuration in a Spring Boot application</span>
+                        <span class="hljs-meta">@Configuration</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> {
+                            <span class="hljs-meta">@Override</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addCorsMappings</span><span class="hljs-params">(CorsRegistry registry)</span> {
+                                registry.addMapping(<span class="hljs-string">"/api/**"</span>)
+                                    .allowedOrigins(<span class="hljs-string">"http://localhost:4200"</span>)
+                                    .allowedMethods(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"POST"</span>, <span class="hljs-string">"PUT"</span>, <span class="hljs-string">"DELETE"</span>)
+                                    .allowedHeaders(<span class="hljs-string">"Authorization"</span>, <span class="hljs-string">"Content-Type"</span>)
+                                    .exposedHeaders(<span class="hljs-string">"Authorization"</span>, <span class="hljs-string">"Content-Type"</span>);
+                            }
+                        }
+                        </code></pre>
+        <ul start="90">
+            <li><strong>What is the purpose of the <code>@RequestBody</code> annotation in Spring MVC?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> The <code>@RequestBody</code> annotation in Spring MVC is used to bind the
+                request body to a method parameter. It is commonly used for handling POST requests.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@RequestBody' in Spring MVC</span>
+                        <span class="hljs-meta">@PostMapping("/create")</span>
+                        <span class="hljs-keyword">public</span> ResponseEntity&lt;String&gt; <span class="hljs-title function_">createEntity</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Entity entity)</span> {
+                            <span class="hljs-comment">// Logic to create entity</span>
+                            <span class="hljs-keyword">return</span> ResponseEntity.ok(<span class="hljs-string">"Entity created successfully"</span>);
+                        }
+                        </code></pre>
+        <ul start="91">
+            <li><strong>How to schedule tasks in a Spring Boot application using <code>@Scheduled</code>?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Schedule tasks in a Spring Boot application by annotating a method with
+                <code>@Scheduled</code> and configuring the cron expression or fixed rate.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of scheduling a task in a Spring Boot application</span>
+                        <span class="hljs-meta">@Service</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyScheduledService</span> {
+                            <span class="hljs-meta">@Scheduled(cron = "0 0 1 * * ?")</span> <span class="hljs-comment">// Run every day at 1 AM</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">performScheduledTask</span><span class="hljs-params">()</span> {
+                                <span class="hljs-comment">// Task logic</span>
+                            }
+                        }
+                        </code></pre>
+        <ul start="92">
+            <li><strong>What is the purpose of the <code>@Cacheable</code> annotation in Spring?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> The <code>@Cacheable</code> annotation in Spring is used to cache the result
+                of a method, preventing redundant calculations for the same inputs.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@Cacheable' in Spring</span>
+                        <span class="hljs-meta">@Service</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> {
+                            <span class="hljs-meta">@Cacheable("myCache")</span>
+                            <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getCachedData</span><span class="hljs-params">(String key)</span> {
+                                <span class="hljs-comment">// Logic to fetch or calculate data</span>
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">"Cached data for key: "</span> + key;
+                            }
+                        }
+                        </code></pre>
+        <ul start="93">
+            <li><strong>How to use <code>RestTemplate</code> for making HTTP requests in a Spring Boot
+                    application?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Use <code>RestTemplate</code> to make HTTP requests by creating an instance
+                and using methods like <code>getForObject</code> or <code>postForObject</code>.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using 'RestTemplate' in a Spring Boot application</span>
+                        <span class="hljs-meta">@Service</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> {
+                            <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">apiUrl</span> <span class="hljs-operator">=</span> <span class="hljs-string">"https://api.example.com"</span>;
+                        
+                            <span class="hljs-keyword">public</span> String <span class="hljs-title function_">fetchData</span><span class="hljs-params">()</span> {
+                                <span class="hljs-type">RestTemplate</span> <span class="hljs-variable">restTemplate</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RestTemplate</span>();
+                                <span class="hljs-keyword">return</span> restTemplate.getForObject(apiUrl, String.class);
+                            }
+                        }
+                        </code></pre>
+        <ul start="94">
+            <li><strong>How to implement content negotiation in Spring Boot for supporting different response
+                    formats?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Implement content negotiation in Spring Boot by configuring
+                <code>ContentNegotiationConfigurer</code> and specifying media types.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of content negotiation in Spring Boot</span>
+                        <span class="hljs-meta">@Configuration</span>
+                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">WebConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> {
+                            <span class="hljs-meta">@Override</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configureContentNegotiation</span><span class="hljs-params">(ContentNegotiationConfigurer configurer)</span> {
+                                configurer.favorPathExtension(<span class="hljs-literal">true</span>)
+                                    .favorParameter(<span class="hljs-literal">false</span>)
+                                    .parameterName(<span class="hljs-string">"format"</span>)
+                                    .ignoreAcceptHeader(<span class="hljs-literal">true</span>)
+                                    .useJaf(<span class="hljs-literal">false</span>)
+                                    .defaultContentType(MediaType.APPLICATION_JSON)
+                                    .mediaType(<span class="hljs-string">"xml"</span>, MediaType.APPLICATION_XML);
+                            }
+                        }
+                        </code></pre>
+        <ul start="95">
+            <li><strong>What is the purpose of the <code>@PathVariable</code> annotation in Spring MVC?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> The <code>@PathVariable</code> annotation in Spring MVC is used to extract
+                values from the URI template and pass them as method parameters. It allows mapping variables
+                directly from the URL.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of using '@PathVariable' in Spring MVC</span>
+                        <span class="hljs-meta">@GetMapping("/users/{userId}")</span>
+                        <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Long userId)</span> {
+                            <span class="hljs-comment">// Logic to retrieve user by ID</span>
+                        }
+                        </code></pre>
+        <ul start="96">
+            <li><strong>How to implement JWT (JSON Web Token) authentication in a Spring Boot application?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Implement JWT authentication in Spring Boot by adding dependencies,
+                configuring <code>JwtTokenProvider</code>, creating filters, and handling authentication in
+                controllers.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of JWT authentication in Spring Boot</span>
+                            <span class="hljs-meta">@RestController</span>
+                            <span class="hljs-meta">@RequestMapping("/api")</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthController</span> {
+                                <span class="hljs-meta">@Autowired</span>
+                                <span class="hljs-keyword">private</span> JwtTokenProvider jwtTokenProvider;
+                            
+                                <span class="hljs-meta">@PostMapping("/login")</span>
+                                <span class="hljs-keyword">public</span> ResponseEntity&lt;String&gt; <span class="hljs-title function_">login</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> UserCredentials credentials)</span> {
+                                    <span class="hljs-comment">// Authenticate user and generate JWT token</span>
+                                    <span class="hljs-type">String</span> <span class="hljs-variable">token</span> <span class="hljs-operator">=</span> jwtTokenProvider.createToken(credentials.getUsername());
+                                    <span class="hljs-keyword">return</span> ResponseEntity.ok(token);
+                                }
+                            }
+                            </code></pre>
+        <ul start="97">
+            <li><strong>How to upload files in a Spring Boot application using <code>@RequestParam</code>?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Enable file uploads in a Spring Boot application by using
+                <code>@RequestParam</code> to bind the uploaded file.
+            </li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of file upload in Spring Boot using '@RequestParam'</span>
+                            <span class="hljs-meta">@RestController</span>
+                            <span class="hljs-meta">@RequestMapping("/api/files")</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FileController</span> {
+                                <span class="hljs-meta">@PostMapping("/upload")</span>
+                                <span class="hljs-keyword">public</span> ResponseEntity&lt;String&gt; <span class="hljs-title function_">uploadFile</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam("file")</span> MultipartFile file)</span> {
+                                    <span class="hljs-comment">// Logic to process the uploaded file</span>
+                                    <span class="hljs-keyword">return</span> ResponseEntity.ok(<span class="hljs-string">"File uploaded successfully"</span>);
+                                }
+                            }
+                            </code></pre>
+        <ul start="98">
+            <li><strong>What is HATEOAS (Hypermedia as the Engine of Application State) in RESTful APIs?</strong>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> HATEOAS in RESTful APIs involves providing hypermedia links along with the
+                response, allowing clients to navigate through the application dynamically.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of HATEOAS in Spring Boot</span>
+                            <span class="hljs-meta">@RestController</span>
+                            <span class="hljs-meta">@RequestMapping("/api")</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserController</span> {
+                                <span class="hljs-meta">@Autowired</span>
+                                <span class="hljs-keyword">private</span> EntityModelAssembler&lt;User&gt; assembler;
+                            
+                                <span class="hljs-meta">@GetMapping("/users/{id}")</span>
+                                <span class="hljs-keyword">public</span> EntityModel&lt;User&gt; <span class="hljs-title function_">getUser</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> Long id)</span> {
+                                    <span class="hljs-comment">// Retrieve user details</span>
+                                    <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> userService.getUser(id);
+                                    <span class="hljs-keyword">return</span> assembler.toModel(user);
+                                }
+                            }
+                            </code></pre>
+        <ul start="99">
+            <li><strong>How to handle exceptions in a Spring Boot RESTful service using
+                    <code>@ControllerAdvice</code>?</strong></li>
+        </ul>
+        <ul>
+            <li><strong>Ans:</strong> Use <code>@ControllerAdvice</code> to handle exceptions globally in a Spring
+                Boot RESTful service.</li>
+        </ul>
+        <pre class='language-java'><code class="!whitespace-pre hljs language-java"><span class="hljs-comment">// Example of exception handling using '@ControllerAdvice'</span>
+                            <span class="hljs-meta">@ControllerAdvice</span>
+                            <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GlobalExceptionHandler</span> {
+                                <span class="hljs-meta">@ExceptionHandler(UserNotFoundException.class)</span>
+                                <span class="hljs-keyword">public</span> ResponseEntity&lt;String&gt; <span class="hljs-title function_">handleUserNotFoundException</span><span class="hljs-params">(UserNotFoundException ex)</span> {
+                                    <span class="hljs-keyword">return</span> ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+                                }
+                            }
+                            </code></pre>
+        <ul start="100">
+            <li><strong>What is the purpose of the <code>ResponseEntity</code> class in Spring MVC?</strong>
+                - <strong>Ans:</strong> <code>ResponseEntity</code> in Spring MVC represents the entire HTTP
+                response. It allows customization of status codes, headers, and body content.</li>
+        </ul>
+
+        <pre class='language-java'><code class="!whitespace-pre hljs language-less"><span class="hljs-comment">// Example of using 'ResponseEntity' in Spring MVC</span>
+                            <span class="hljs-variable">@GetMapping</span>(<span class="hljs-string">"/user/{id}"</span>)
+                            public ResponseEntity&lt;User&gt; <span class="hljs-built_in">getUser</span>(<span class="hljs-variable">@PathVariable</span> Long id) {
+                                <span class="hljs-selector-tag">User</span> <span class="hljs-selector-tag">user</span> = <span class="hljs-selector-tag">userService</span><span class="hljs-selector-class">.getUser</span>(id);
+                                <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">ResponseEntity</span><span class="hljs-selector-class">.ok</span>()<span class="hljs-selector-class">.body</span>(user);
+                            }
+                            
+                            </code></pre>
+
+
+
+</body>
+
+</html>

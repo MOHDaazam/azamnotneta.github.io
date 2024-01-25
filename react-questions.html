@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ReactJs Interview Questions & Answers by Mohd Azam</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+    <style>
+        ul,
+        ol {
+            padding-left: 15px !important;
+        }
+        .overflow-y-auto{
+            width: 1000px;
+        }
+        li{
+            margin-top: 16px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="jumbotron text-center">
+        <h3>ReactJs Interview Questions & Answers by Mohd Azam</h3>
+        <p>Entry, Mid and Senior Level</p>
+    </div>
+    <ul>
+        <li>
+            <p><strong>How does React work?</strong></p>
+            <ul>
+                <li><em></em> React uses a virtual DOM to optimize rendering. It creates a virtual representation
+                    of the actual DOM and updates only the changed parts, reducing the need for direct manipulation of
+                    the real DOM.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What are the advantages of using React?</strong></p>
+            <ul>
+                <li><em></em> React provides a component-based architecture for reusability, a virtual DOM for
+                    efficient updates, one-way data binding for predictable state management, and a vibrant ecosystem.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the difference between a Presentational component and a Container component?</strong></p>
+            <ul>
+                <li><em></em> Presentational components are concerned with how things look, while Container
+                    components manage data and behavior. Container components may pass data and callbacks as props to
+                    presentational components.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What are the differences between a class component and functional component?</strong></p>
+            <ul>
+                <li><em></em> Class components use ES6 classes and have access to lifecycle methods, while
+                    functional components are simpler and introduced Hooks in React 16.8 for state and lifecycle
+                    management.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the difference between state and props?</strong></p>
+            <ul>
+                <li><em></em> State is internal to a component and can be changed, while props are external
+                    properties passed to a component. Props are immutable and passed down from parent to child.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What are the different lifecycle methods?</strong></p>
+            <ul>
+                <li><em></em> Common lifecycle methods include <code>componentDidMount</code>,
+                    <code>componentDidUpdate</code>, and <code>componentWillUnmount</code>. With Hooks, functional
+                    components use <code>useEffect</code> for similar functionality.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Explain React Hooks.</strong></p>
+            <ul>
+                <li><em></em> React Hooks are functions that enable the use of state and lifecycle features in
+                    functional components. Examples include <code>useState</code>, <code>useEffect</code>, and
+                    <code>useContext</code>.
+                </li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">ExampleComponent</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-property">title</span> = <span class="hljs-string">`Count: <span class="hljs-subst">${count}</span>`</span>;
+  }, [count]);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You clicked {count} times.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> setCount(count + 1)}&gt;
+        Click me
+      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Where in a React class component should you make an AJAX/API request?</strong></p>
+            <ul>
+                <li><em></em> AJAX/API requests are typically made in <code>componentDidMount</code> to ensure
+                    they are initiated once the component is mounted.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ExampleComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+  <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-title function_">fetch</span>(<span class="hljs-string">'https://api.example.com/data'</span>)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.<span class="hljs-title function_">json</span>())
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data))
+      .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error));
+  }
+
+  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Component content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+  }
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What are controlled components?</strong></p>
+            <ul>
+                <li><em></em> Controlled components are components whose state is controlled by React. Their
+                    value is tied to the state, and any change triggers a re-render.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">ControlledComponent</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> [inputValue, setInputValue] = <span class="hljs-title function_">useState</span>(<span class="hljs-string">''</span>);
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleInputChange</span> = (<span class="hljs-params">event</span>) =&gt; {
+    <span class="hljs-title function_">setInputValue</span>(event.<span class="hljs-property">target</span>.<span class="hljs-property">value</span>);
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+      <span class="hljs-attr">value</span>=<span class="hljs-string">{inputValue}</span>
+      <span class="hljs-attr">onChange</span>=<span class="hljs-string">{handleInputChange}</span>
+    /&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What are refs used for in React?</strong></p>
+            <ul>
+                <li><em></em> Refs are used to reference a React element or a class component instance. They
+                    provide a way to interact with the DOM directly or access component methods imperatively.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useRef, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">RefExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> myInputRef = <span class="hljs-title function_">useRef</span>(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Focus on the input element on mount</span>
+    myInputRef.<span class="hljs-property">current</span>.<span class="hljs-title function_">focus</span>();
+  }, []);
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{myInputRef}</span> /&gt;</span></span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is a higher-order component?</strong></p>
+            <ul>
+                <li><em></em> A higher-order component (HOC) is a function that takes a component and returns a
+                    new component with enhanced functionality. HOCs are used for code reuse and logic abstraction.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">withLogger</span> = (<span class="hljs-params">WrappedComponent</span>) =&gt; {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">extends</span> <span class="hljs-title class_">React</span>.<span class="hljs-property">Component</span> {
+    <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Component is mounted.'</span>);
+    }
+
+    <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">WrappedComponent</span> {<span class="hljs-attr">...this.props</span>} /&gt;</span></span>;
+    }
+  };
+};
+
+<span class="hljs-comment">// Usage</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">EnhancedComponent</span> = <span class="hljs-title function_">withLogger</span>(<span class="hljs-title class_">MyComponent</span>);
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What advantages are there in using arrow functions?</strong></p>
+            <ul>
+                <li><em></em> Arrow functions in React provide a concise syntax and automatically bind the
+                    context, avoiding issues with <code>this</code> in class components.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Without arrow function</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-variable language_">super</span>();
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">handleClick</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">handleClick</span>.<span class="hljs-title function_">bind</span>(<span class="hljs-variable language_">this</span>);
+  }
+
+  <span class="hljs-title function_">handleClick</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-comment">// Handle click</span>
+  }
+
+  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClick}</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>;
+  }
+}
+
+<span class="hljs-comment">// With arrow function</span>
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+  handleClick = <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Handle click</span>
+  };
+
+  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleClick}</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>;
+  }
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>How would you prevent a class component from rendering?</strong></p>
+            <ul>
+                <li><em></em> You can prevent a class component from rendering by returning <code>null</code>
+                    from its <code>render</code> method or using conditional rendering.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">if</span> (<span class="hljs-comment">/* condition */</span>) {
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Rendered content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>; <span class="hljs-comment">// or an alternative UI</span>
+    }
+  }
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>When rendering a list what is a key and what is its purpose?</strong></p>
+            <ul>
+                <li><em></em> A key is a unique identifier assigned to each element in a React list. It helps
+                    React identify which items have changed, been added, or been removed. Keys should be stable, unique,
+                    and preferably based on the item's ID.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">ListComponent</span>(<span class="hljs-params">{ items }</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+      {items.map((item) =&gt; (
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{item.id}</span>&gt;</span>{item.name}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      ))}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is the purpose of <code>super(props)</code>?</strong></p>
+            <ul>
+                <li><em></em> <code>super(props)</code> is used in a class constructor to call the constructor of
+                    the parent class (React.Component). It ensures that the component is initialized correctly and has
+                    access to the <code>props</code> object.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">React.Component</span> {
+  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">props</span>) {
+    <span class="hljs-variable language_">super</span>(props);
+    <span class="hljs-comment">// Component initialization</span>
+  }
+
+  <span class="hljs-comment">// Rest of the component code</span>
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is JSX?</strong></p>
+            <ul>
+                <li><em></em> JSX (JavaScript XML) is a syntax extension for JavaScript used with React. It
+                    allows writing HTML elements in JavaScript code, making it more readable and concise.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> element = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, JSX!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is equivalent of the following using React.createElement?</strong></p>
+            <ul>
+                <li><em></em> The equivalent <code>React.createElement</code> code for
+                    <code>&lt;MyComponent prop1="value" prop2={42} /&gt;</code> is:
+                </li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-title class_">React</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-title class_">MyComponent</span>, { <span class="hljs-attr">prop1</span>: <span class="hljs-string">'value'</span>, <span class="hljs-attr">prop2</span>: <span class="hljs-number">42</span> });
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is Redux?</strong></p>
+            <ul>
+                <li><em></em> Redux is a state management library for JavaScript applications, particularly those
+                    built with React. It provides a predictable state container, actions, and reducers to manage and
+                    update application state.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is a store in Redux?</strong></p>
+            <ul>
+                <li><em></em> The store in Redux is a single source of truth for the application state. It holds
+                    the complete state tree and allows components to subscribe and dispatch actions to modify the state.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Difference between action and reducer.</strong></p>
+            <ul>
+                <li><em></em> Actions are plain JavaScript objects describing changes to the state, while
+                    reducers are functions that specify how the state changes in response to actions. Actions are
+                    dispatched to trigger state modifications handled by reducers.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Action example</span>
+<span class="hljs-keyword">const</span> incrementAction = { <span class="hljs-attr">type</span>: <span class="hljs-string">'INCREMENT'</span> };
+
+<span class="hljs-comment">// Reducer example</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">counterReducer</span> = (<span class="hljs-params">state = <span class="hljs-number">0</span>, action</span>) =&gt; {
+  <span class="hljs-keyword">switch</span> (action.<span class="hljs-property">type</span>) {
+    <span class="hljs-keyword">case</span> <span class="hljs-string">'INCREMENT'</span>:
+      <span class="hljs-keyword">return</span> state + <span class="hljs-number">1</span>;
+    <span class="hljs-attr">default</span>:
+      <span class="hljs-keyword">return</span> state;
+  }
+};
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is Redux Thunk used for?</strong></p>
+            <ul>
+                <li><em></em> Redux Thunk is a middleware for Redux that enables handling asynchronous logic in
+                    Redux actions. It allows actions to return functions instead of plain objects, supporting
+                    asynchronous operations like API requests.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Action using Redux Thunk</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">fetchData</span> = (<span class="hljs-params"></span>) =&gt; {
+  <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">dispatch</span>) =&gt;</span> {
+    <span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">'FETCH_START'</span> });
+    <span class="hljs-title function_">fetch</span>(<span class="hljs-string">'https://api.example.com/data'</span>)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> response.<span class="hljs-title function_">json</span>())
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">'FETCH_SUCCESS'</span>, data }))
+      .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> <span class="hljs-title function_">dispatch</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">'FETCH_ERROR'</span>, error }));
+  };
+};
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Write a custom hook that can be used to debounce user's input.</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">useDebounce</span>(<span class="hljs-params">value, delay</span>) {
+  <span class="hljs-keyword">const</span> [debouncedValue, setDebouncedValue] = <span class="hljs-title function_">useState</span>(value);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> handler = <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-title function_">setDebouncedValue</span>(value);
+    }, delay);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-built_in">clearTimeout</span>(handler);
+    };
+  }, [value, delay]);
+
+  <span class="hljs-keyword">return</span> debouncedValue;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Write a custom hook to copy text to the clipboard.</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">useCopyToClipboard</span>(<span class="hljs-params">text</span>) {
+  <span class="hljs-keyword">const</span> [isCopied, setIsCopied] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">false</span>);
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">copyToClipboard</span> = (<span class="hljs-params"></span>) =&gt; {
+    navigator.<span class="hljs-property">clipboard</span>.<span class="hljs-title function_">writeText</span>(text)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">setIsCopied</span>(<span class="hljs-literal">true</span>))
+      .<span class="hljs-title function_">catch</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">setIsCopied</span>(<span class="hljs-literal">false</span>));
+  };
+
+  <span class="hljs-keyword">return</span> { isCopied, copyToClipboard };
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>How to Use the 'useId' Hook to generate unique ids.</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> { useState, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">useId</span>(<span class="hljs-params">prefix</span>) {
+  <span class="hljs-keyword">const</span> [id, setId] = <span class="hljs-title function_">useState</span>(<span class="hljs-string">''</span>);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> uniqueId = <span class="hljs-string">`<span class="hljs-subst">${prefix}</span>-<span class="hljs-subst">${<span class="hljs-built_in">Math</span>.random().toString(<span class="hljs-number">36</span>).substr(<span class="hljs-number">2</span>, <span class="hljs-number">9</span>)}</span>`</span>;
+    <span class="hljs-title function_">setId</span>(uniqueId);
+  }, [prefix]);
+
+  <span class="hljs-keyword">return</span> id;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>How to validate Props in React?</strong></p>
+            <ul>
+                <li><em></em> Prop types can be defined using the <code>prop-types</code> library to validate the
+                    expected type of each prop.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">PropTypes</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">MyComponent</span>(<span class="hljs-params">{ name, age }</span>) {
+  <span class="hljs-comment">// Component logic</span>
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{name}, {age}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+
+<span class="hljs-title class_">MyComponent</span>.<span class="hljs-property">propTypes</span> = {
+  <span class="hljs-attr">name</span>: <span class="hljs-title class_">PropTypes</span>.<span class="hljs-property">string</span>.<span class="hljs-property">isRequired</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-title class_">PropTypes</span>.<span class="hljs-property">number</span>.<span class="hljs-property">isRequired</span>,
+};
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Give a practical example of a Higher Order Component in React.</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { <span class="hljs-title class_">Component</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">withLogger</span> = (<span class="hljs-params">WrappedComponent</span>) =&gt; {
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">extends</span> <span class="hljs-title class_">Component</span> {
+    <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Component is mounted.'</span>);
+    }
+
+    <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">WrappedComponent</span> {<span class="hljs-attr">...this.props</span>} /&gt;</span></span>;
+    }
+  };
+};
+
+<span class="hljs-comment">// Usage</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">EnhancedComponent</span> = <span class="hljs-title function_">withLogger</span>(<span class="hljs-title class_">MyComponent</span>);
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Why is React's useDeferredValue hook useful?</strong></p>
+            <ul>
+                <li><em></em> <code>useDeferredValue</code> is useful for deferring the update of a value in
+                    concurrent mode, allowing React to prioritize rendering more important updates first for a smoother
+                    user experience.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How to detect 'click' outside a React component?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useRef, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">OutsideClickExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> wrapperRef = <span class="hljs-title function_">useRef</span>(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleClickOutside</span> = (<span class="hljs-params">event</span>) =&gt; {
+    <span class="hljs-keyword">if</span> (wrapperRef.<span class="hljs-property">current</span> &amp;&amp; !wrapperRef.<span class="hljs-property">current</span>.<span class="hljs-title function_">contains</span>(event.<span class="hljs-property">target</span>)) {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Clicked outside the component!'</span>);
+    }
+  };
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'mousedown'</span>, handleClickOutside);
+    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">removeEventListener</span>(<span class="hljs-string">'mousedown'</span>, handleClick
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Why do React component names have to start with capital letters?</strong></p>
+            <ul>
+                <li><em></em> React component names starting with capital letters are treated as components,
+                    while lowercase names are assumed to be regular HTML elements. This convention helps React
+                    differentiate between custom components and built-in HTML elements.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the difference between npx and npm?</strong></p>
+            <ul>
+                <li><em></em> <code>npx</code> is a package runner tool that comes with npm 5.2.0 and higher. It
+                    is used to execute npm package binaries without installing them globally. <code>npm</code> is the
+                    Node Package Manager used for installing and managing packages globally or locally in a project.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How to set focus on an input field after the component mounts on the UI?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useRef, useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">FocusExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> inputRef = <span class="hljs-title function_">useRef</span>(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    inputRef.<span class="hljs-property">current</span>.<span class="hljs-title function_">focus</span>();
+  }, []);
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{inputRef}</span> /&gt;</span></span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>How to programmatically navigate using the latest React Router version?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> { useHistory } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">NavigationExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> history = <span class="hljs-title function_">useHistory</span>();
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleButtonClick</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-comment">// Programmatically navigate to '/new-route'</span>
+    history.<span class="hljs-title function_">push</span>(<span class="hljs-string">'/new-route'</span>);
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleButtonClick}</span>&gt;</span>Navigate<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is React state batching? Guess the output.</strong></p>
+            <ul>
+                <li><em></em> React state batching is the process of grouping consecutive state updates into a
+                    single update to improve performance. The output of the following code would be "Count: 2".</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">StateBatchingExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>);
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleIncrement</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-title function_">setCount</span>(count + <span class="hljs-number">1</span>);
+    <span class="hljs-title function_">setCount</span>(count + <span class="hljs-number">1</span>);
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Count: {count}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleIncrement}</span>&gt;</span>Increment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>How to pass data between sibling components using React Router?</strong></p>
+            <ul>
+                <li><em></em> Data between sibling components can be passed through the URL using React Router's
+                    <code>Link</code> and <code>useParams</code> hook.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// SiblingComponentA.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-title class_">Link</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">SiblingComponentA</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/sibling-b/123"</span>&gt;</span>Go to Sibling B<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-comment">// SiblingComponentB.js</span>
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { useParams } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">SiblingComponentB</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> { data } = <span class="hljs-title function_">useParams</span>();
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Data from Sibling A: {data}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>How to access a global variable using the useContext hook?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useContext } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-comment">// Create a context</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">GlobalContext</span> = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">createContext</span>();
+
+<span class="hljs-comment">// Provide the context value at a higher level</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> globalValue = <span class="hljs-string">'Global Variable'</span>;
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">GlobalContext.Provider</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{globalValue}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ChildComponent</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GlobalContext.Provider</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-comment">// Access the global variable using useContext</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">ChildComponent</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> globalValue = <span class="hljs-title function_">useContext</span>(<span class="hljs-title class_">GlobalContext</span>);
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{globalValue}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is the difference between useMemo and useCallback?</strong></p>
+            <ul>
+                <li><em></em> <code>useMemo</code> memoizes a value, while <code>useCallback</code> memoizes a
+                    function. They both optimize performance by preventing unnecessary recalculations and re-renders.
+                </li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useMemo, useCallback } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">MemoCallbackExample</span>(<span class="hljs-params">{ data }</span>) {
+  <span class="hljs-keyword">const</span> memoizedValue = <span class="hljs-title function_">useMemo</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">calculateValue</span>(data), [data]);
+
+  <span class="hljs-keyword">const</span> memoizedFunction = <span class="hljs-title function_">useCallback</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Function logic</span>
+  }, [data]);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Memoized Value: {memoizedValue}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{memoizedFunction}</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">calculateValue</span>(<span class="hljs-params">data</span>) {
+  <span class="hljs-comment">// Calculation logic</span>
+  <span class="hljs-keyword">return</span> data * <span class="hljs-number">2</span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Why you should prefer Vite over create-react-app?</strong></p>
+            <ul>
+                <li><em></em> Vite is a faster alternative to create-react-app, especially for large-scale
+                    projects. It leverages ES modules, offers faster builds, and supports features like hot module
+                    replacement (HMR) out of the box.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What are the advantages of react-router?</strong></p>
+            <ul>
+                <li><em></em> <code>react-router</code> simplifies navigation in React applications, provides
+                    dynamic routing, supports nested routes, and offers features like route parameters and query
+                    parameters. It enables the creation of a single-page application with a smooth user experience.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How can you optimize performance in a ReactJS application?</strong></p>
+            <ul>
+                <li><em></em> Performance optimization in React includes using React.memo for memoization,
+                    avoiding unnecessary renders, implementing lazy loading for components, optimizing component
+                    lifecycles, and code-splitting for better resource utilization.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Write code for CRUD functionality in ReactJs?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">CrudExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> [items, setItems] = <span class="hljs-title function_">useState</span>([
+    { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">'Item 1'</span> },
+    { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">'Item 2'</span> },
+    <span class="hljs-comment">// ... other items</span>
+  ]);
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleAdd</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-keyword">const</span> newItem = { <span class="hljs-attr">id</span>: items.<span class="hljs-property">length</span> + <span class="hljs-number">1</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">`Item <span class="hljs-subst">${items.length + <span class="hljs-number">1</span>}</span>`</span> };
+    <span class="hljs-title function_">setItems</span>([...items, newItem]);
+  };
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleUpdate</span> = (<span class="hljs-params">id, newName</span>) =&gt; {
+    <span class="hljs-title function_">setItems</span>(items.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> (item.<span class="hljs-property">id</span> === id ? { ...item, <span class="hljs-attr">name</span>: newName } : item)));
+  };
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">handleDelete</span> = (<span class="hljs-params">id</span>) =&gt; {
+    <span class="hljs-title function_">setItems</span>(items.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.<span class="hljs-property">id</span> !== id));
+  };
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        {items.map(item =&gt; (
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{item.id}</span>&gt;</span>
+            {item.name}
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> handleUpdate(item.id, `Updated ${item.name}`)}&gt;Update<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span> =&gt;</span> handleDelete(item.id)}&gt;Delete<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        ))}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{handleAdd}</span>&gt;</span>Add Item<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is a hook in React and why are they useful?</strong></p>
+            <ul>
+                <li><em></em> Hooks in React are functions that enable the use of state and lifecycle features in
+                    functional components. They provide a cleaner and more concise way to manage component logic
+                    compared to class components.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What are some common hooks that are used in React?</strong></p>
+            <ul>
+                <li><em></em> Commonly used hooks in React include <code>useState</code>, <code>useEffect</code>,
+                    <code>useContext</code>, <code>useReducer</code>, <code>useCallback</code>, <code>useMemo</code>,
+                    <code>useRef</code>, and <code>useEffect</code>.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Can you use hooks inside a class-based component?</strong></p>
+            <ul>
+                <li><em></em> No, hooks are designed to work only in functional components and not in class-based
+                    components. Using hooks in a class component would result in an error.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>How do you test a component that uses hooks?</strong></p>
+            <ul>
+                <li><em></em> Components using hooks can be tested using testing libraries like Jest and React
+                    Testing Library. Mocking the hook functions and testing component behavior, state changes, and UI
+                    interactions are common approaches.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>What is the useEffect hook used for?</strong></p>
+            <ul>
+                <li><em></em> <code>useEffect</code> is used for side effects in functional components. It allows
+                    performing actions like data fetching, subscriptions, or manual DOM manipulation after a component
+                    renders.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, { useEffect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">SideEffectExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Perform side effect</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Component is rendered'</span>);
+
+    <span class="hljs-comment">// Clean-up function</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'Component will unmount'</span>);
+    };
+  }, []); <span class="hljs-comment">// Dependency array to control when the effect runs</span>
+
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Component content<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Create a simple custom hook in React?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> { useState } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">useCounter</span>(<span class="hljs-params">initialValue, step</span>) {
+  <span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title function_">useState</span>(initialValue);
+
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">increment</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">setCount</span>(count + step);
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">decrement</span> = (<span class="hljs-params"></span>) =&gt; <span class="hljs-title function_">setCount</span>(count - step);
+
+  <span class="hljs-keyword">return</span> { count, increment, decrement };
+}
+
+<span class="hljs-comment">// Usage</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">CounterComponent</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> { count, increment, decrement } = <span class="hljs-title function_">useCounter</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Count: {count}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{increment}</span>&gt;</span>Increment<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{decrement}</span>&gt;</span>Decrement<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>What is the difference between useEffect and useLayoutEffect?</strong></p>
+            <ul>
+                <li><em></em> <code>useEffect</code> runs after the browser has painted, while
+                    <code>useLayoutEffect</code> runs synchronously after all DOM mutations. Use <code>useEffect</code>
+                    for less critical side effects, and <code>useLayoutEffect</code> when you need to perform actions
+                    that require layout calculations before painting.</li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Why is the virtual DOM faster to update than the real DOM?</strong></p>
+            <ul>
+                <li><em></em> The virtual DOM is faster because it creates a lightweight, in-memory
+                    representation of the actual DOM. React can efficiently update the virtual DOM, identify the minimal
+                    changes needed, and apply those changes to the real DOM in a batch, minimizing reflows and repaints.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p><strong>Can you explain the difference between a pure and impure function, and why it matters in the
+                    context of React?</strong></p>
+            <ul>
+                <li><em></em> A pure function produces the same output for the same input and has no side
+                    effects, making it predictable and easy to test. In React, pure functions are preferred for
+                    components to ensure predictable rendering and behavior.</li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-comment">// Pure function</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">a, b</span>) {
+  <span class="hljs-keyword">return</span> a + b;
+}
+
+<span class="hljs-comment">// Impure function</span>
+<span class="hljs-keyword">let</span> result = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">impureAdd</span>(<span class="hljs-params">a, b</span>) {
+  result = a + b;
+  <span class="hljs-keyword">return</span> result;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Explain Styled Component in React with an example?</strong></p>
+            <ul>
+                <li><em></em></li>
+            </ul>
+            <pre class='language-javascript'><div class="bg-black rounded-md"><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">'styled-components'</span>;
+
+<span class="hljs-comment">// Create a styled component</span>
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">StyledButton</span> = styled.<span class="hljs-property">button</span><span class="hljs-string">`
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+
+  &amp;:hover {
+    background-color: #217dbb;
+  }
+`</span>;
+
+<span class="hljs-comment">// Usage of the styled component</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">StyledComponentExample</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">StyledButton</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">StyledButton</span>&gt;</span></span>;
+}
+</code></div></div></pre>
+        </li>
+        <li>
+            <p><strong>Styled-Components vs Inline Styling in React?</strong></p>
+            <ul>
+                <li><em></em> <code>Styled-Components</code> is a popular CSS-in-JS library that allows writing
+                    styled components with tagged template literals. It provides more control, better organization, and
+                    supports dynamic styling. Inline styling, on the other hand, involves directly adding styles to JSX
+                    elements using the <code>style</code> attribute. While convenient, it can become difficult to manage
+                    in large applications and lacks the features provided by <code>Styled-Components</code>. Using
+                    <code>Styled-Components</code> is generally recommended for scalable styling in React.</li>
+            </ul>
+        </li>
+    </ul>
+    <script defer>
+        setTimeout(() => {
+            const codeTags = document.querySelectorAll('code');
+
+            codeTags.forEach(codeTag => {
+                const classes = codeTag.classList.value.split(' '); // Get all classes
+                console.log(classes)
+                const filteredClasses = classes.filter(c => c !== 'language-javascript'); // Keep !whitespace-pre
+                codeTag.classList.value = filteredClasses.join(' '); // Set classes back with !whitespace-pre
+            });
+        }, 2000)
+
+    </script>
+</body>
+
+</html>
